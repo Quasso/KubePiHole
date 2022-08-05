@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source colours.sh
+
 function space_terminal_lg() {
     echo
     echo
@@ -27,7 +29,7 @@ function print_assistant() {
     else
         if [[ $STYLE == "title" ]]; then
             space_terminal_lg
-            echo "$MESSAGE"
+            echo "${COLOUR_GREEN}$MESSAGE${COLOUR_NC}"
             echo $SUB_MESSAGE
             space_terminal_lg
         fi

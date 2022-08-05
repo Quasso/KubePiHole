@@ -6,7 +6,7 @@ ARGS=$*
 
 export CLI_FRIENDLY_NAME="[Kube Pi Hole]"
 
-function no_args() {
+function no_args {
     echo "$CLI_FRIENDLY_NAME Error! You must supply at least one argument."
 }
 

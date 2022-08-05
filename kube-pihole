@@ -2,7 +2,7 @@
 
 # A simple but powerful CLI tool to automate k8s deployment of Pi-hole on a Pi (or elsewhere potentially)
 
-ARGS=$@
+ARGS=$*
 
 export CLI_FRIENDLY_NAME="[Kube Pi Hole]"
 
@@ -15,11 +15,16 @@ function no_args() {
 #
 # Process the args supplied via CLI
 #
-if [[ $ARGS -lt 1 ]]; then
+if [[ $ARGS == 0 ]]; then
     no_args
 else
     # At least one arg supplied, process what it is!
-    COMMAND=$ARGS[0]
+    COMMAND=${ARGS[0]}
 
     echo "$CLI_FRIENDLY_NAME Command was supplied ($COMMAND), handling..."
+
+    if [[ $COMMAND == "install-dependencies" ]]; then
+        echo "$CLI_FRIENDLY_NAME Installing depencies via helper, it will output useful info..."
+        install_dependencies
+    fi
 fi

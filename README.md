@@ -48,6 +48,8 @@ Next, click the "CHOOSE STORAGE" button and select your SD card (you may need to
 
 Once storage is selected a new cog icon button should appear in the bottom right hand corner, click it and enable SSH for the rest of the configuration:
 
+_Note: it's recommended to set your Pi's hostname and SSH username to `kube-pihole` NOT `r-pihole`!_
+
 ![Pi Imager advanced config](./screenshots/pi-imager-advanced-config.png)
 
 "SAVE".
@@ -67,13 +69,14 @@ This part is mostly up to you, whatever router you run figure out how to identif
 Set an environment variable for the PI IP you set up as static on your local network (e.g. `192.1.1.100`):
 
 ```zsh
+MY_PI_USERNAME=kube-pihole
 MY_PI_IP=192.1.1.100 # replace with your static IP!
 ```
 
 From your preferred computer, open a terminal and connect to your Raspberry Pi via SSH:
 
 ```zsh
-ssh r-pihole@$MY_PI_IP
+ssh $MY_PI_USERNAME@$MY_PI_IP
 ```
 
 Enter the password you chose earlier, and you should now have a live "shell" on your Raspberry Pi.
@@ -97,4 +100,8 @@ Just run:
 ```zsh
 git clone https://github.com/Quasso/KubePiHole.git
 cd KubePiHole
+chmod +x kube-pihole # allows the CLI tool to run
 ```
+
+## Running `kube-pihole`
+

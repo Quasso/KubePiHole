@@ -95,6 +95,6 @@ If you're used to git, you probably already know how to do this since you're lik
 Just run:
 
 ```zsh
-git clone git@github.com:Quasso/KubePiHole.git
+git clone https://github.com/Quasso/KubePiHole.git
 cd KubePiHole
 ```

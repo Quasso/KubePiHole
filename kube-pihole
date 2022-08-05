@@ -6,7 +6,9 @@ ARGS=$*
 
 export CLI_FRIENDLY_NAME="[Kube Pi Hole]"
 
-source $HOME/KubePiHole/scripts/install-required-packages.sh
+cd $HOME/KubePiHole # this ensures relative paths work and we execute from the root of the repo
+
+source scripts/install-required-packages.sh
 
 function no_args() {
     echo "$CLI_FRIENDLY_NAME Error! You must supply at least one argument."

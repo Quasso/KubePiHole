@@ -13,7 +13,7 @@ no_args() {
 #
 # Process the args supplied via CLI
 #
-if [[ $ARGS == 0 ]]; then
+if [ $ARGS == 0 ]; then
     no_args
 else
     # At least one arg supplied, process what it is!
@@ -24,7 +24,7 @@ else
     # this ensures relative paths work and we execute from the root of the repo
     # cd "$HOME/KubePiHole"
 
-    if [[ $COMMAND == "install-dependencies" ]]; then
+    if [ $COMMAND == "install-dependencies" ]; then
         source scripts/install-required-packages.sh
 
         echo "$CLI_FRIENDLY_NAME Installing depencies via helper, it will output useful info..."

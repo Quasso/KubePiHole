@@ -1,11 +1,10 @@
 #!/bin/bash
 
 print_assistant() {
-    PREFIX=$1
-    MESSAGE=$2
-    STYLE=$3
+    MESSAGE=$1
+    STYLE=$2
 
     echo ""
-    echo "[$PREFIX] $MESSAGE"
+    echo "[$PRINT_PREFIX] $MESSAGE"
     echo ""
 }

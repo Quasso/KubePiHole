@@ -4,4 +4,19 @@
 
 ARGS=$@
 
-source ./shell/install-required-packages.sh
+export CLI_FRIENDLY_NAME="[Kube Pi Hole]"
+
+source ./scripts/install-required-packages.sh
+
+function no_args() {
+    echo "$CLI_FRIENDLY_NAME Error! You must supply at least one argument."
+}
+
+#
+# Process the args supplied via CLI
+#
+if [[ $ARGS -lt 1 ]]; then
+    no_args
+else
+    # At least one arg supplied, process what it is!
+fi

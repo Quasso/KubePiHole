@@ -34,3 +34,10 @@ function print_assistant() {
         fi
     fi
 }
+
+function envsubst_and_apply_manifest() {
+    TEMPLATE=$1
+
+    print_assistant "Substituting env vars for manifest $TEMPLATE & applying..."
+    cat $TEMPLATE | envsubst | kubectl apply -f -
+}

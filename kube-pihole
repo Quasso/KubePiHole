@@ -24,7 +24,7 @@ else
 
     space_terminal
 
-    print_assistant "⚙️ Command was supplied: $COMMAND" "title"
+    print_assistant "Kube Pi Hole is running!\n\nCommand was supplied: $COMMAND" "title"
 
     space_terminal
 

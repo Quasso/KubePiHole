@@ -19,12 +19,19 @@ spec:
       containers:
       - name: pihole
         image: pihole/pihole:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: "0.8"
+            memory: "1G"
+          requests:
+            cpu: "0.5"
+            memory: "512MB"
         env:
         - name: TZ
           value: "America/New_York"
         - name: WEBPASSWORD
-          value: "secret"
+          value: "${PIHOLE_WEB_PASSWORD}"
         volumeMounts:
         - name: ${PIHOLE_NAME}-local-etc-volume
           mountPath: "/etc/${PIHOLE_NAME}"

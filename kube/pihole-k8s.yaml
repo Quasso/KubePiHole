@@ -29,7 +29,7 @@ spec:
             memory: "512MB"
         env:
         - name: TZ
-          value: "America/New_York"
+          value: "${PIHOLE_TIMEZONE}"
         - name: WEBPASSWORD
           value: "${PIHOLE_WEB_PASSWORD}"
         volumeMounts:

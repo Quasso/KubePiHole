@@ -10,7 +10,6 @@ export PRINT_PREFIX="Kube Pi Hole"
 source scripts/colours.sh
 source scripts/utils.sh
 
-
 no_args() {
     print_assistant "Error! You must supply at least one argument."
 }
@@ -34,6 +33,11 @@ else
 
         print_assistant "Installing depencies via helper, it will output useful info..."
         install_dependencies
+    elif [[ $COMMAND == "deploy" ]]; then
+        source scripts/deploy.sh
+
+        print_assistant "Deploying the k8s manifests now with automatic env substition..."
+        
     fi
 
     space_terminal

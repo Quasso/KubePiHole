@@ -37,8 +37,8 @@ else
         source scripts/deploy.sh
 
         print_assistant "Deploying the k8s manifests now with automatic env substition..."
-        
+
     fi
 
-    space_terminal
+    space_terminal_lg
 fi

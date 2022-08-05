@@ -9,5 +9,13 @@ local K8S_PVS="/kube/templates/kube-pihole-pv.yaml"
 
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {
-    print_assistant "Deploy Pi-hole function is now running!"
+    PIHOLE_NAME="kube-pihole"
+
+    print_assistant "Deploy Pi-hole function is now running!" "title"
+
+    envsubst_and_apply_manifest $K8S_STORAGECLASS
+
+    envsubst_and_apply_manifest $K8S_PVCS
+
+    envsubst_and_apply_manifest $K8S_PVS
 }

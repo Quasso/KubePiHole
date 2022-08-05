@@ -22,7 +22,7 @@ else
     echo "$CLI_FRIENDLY_NAME Command was supplied ($COMMAND), handling..."
 
     # this ensures relative paths work and we execute from the root of the repo
-    cd "$HOME/KubePiHole"
+    # cd "$HOME/KubePiHole"
 
     if [[ $COMMAND == "install-dependencies" ]]; then
         source scripts/install-required-packages.sh

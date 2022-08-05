@@ -9,6 +9,7 @@ function space_terminal() {
 function print_assistant() {
     MESSAGE=$1
     STYLE=$2
+    SUB_MESSAGE=$3
 
     if [[ -z $STYLE ]]; then
         # style not set, output default
@@ -19,6 +20,7 @@ function print_assistant() {
         if [[ $STYLE == "title" ]]; then
             space_terminal
             echo "$MESSAGE"
+            echo $SUB_MESSAGE
             space_terminal
         fi
     fi

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # A helper function to install the necessary packages (dependencies) on a fresh Raspberry Pi OS install
 

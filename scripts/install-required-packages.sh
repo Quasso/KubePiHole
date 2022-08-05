@@ -22,5 +22,7 @@ function install_dependencies() {
     echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check # TODO: add handler if the above command outputs FAILED
 
     print_assistant "1.3) Install kubectl"
-    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    chmod +x kubectl
+    mkdir -p ~/.local/bin
+    mv ./kubectl ~/.local/bin/kubectl
 }

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source colours.sh
-
 function space_terminal_lg() {
     echo
     echo

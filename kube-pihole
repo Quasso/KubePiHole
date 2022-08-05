@@ -7,7 +7,9 @@ ARGS=$*
 export PRINT_PREFIX="Kube Pi Hole"
 
 # Contains a few helpful methods because I like DRY things
+source scripts/colours.sh
 source scripts/utils.sh
+
 
 no_args() {
     print_assistant "Error! You must supply at least one argument."

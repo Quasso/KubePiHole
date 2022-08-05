@@ -22,11 +22,7 @@ else
     # At least one arg supplied, process what it is!
     COMMAND=${ARGS}
 
-    space_terminal
-
     print_assistant "Kube Pi Hole is running!" "title" "Command was supplied: $COMMAND"
-
-    space_terminal
 
     # this ensures relative paths work and we execute from the root of the repo
     cd "$HOME/KubePiHole"

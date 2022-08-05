@@ -1,9 +1,17 @@
 #!/bin/bash
 
+function space_terminal_lg() {
+    echo
+    echo
+    echo "=============================================="
+    echo
+    echo
+}
+
 function space_terminal() {
-    echo ""
+    echo
     echo "===================================="
-    echo ""
+    echo
 }
 
 function print_assistant() {
@@ -13,15 +21,15 @@ function print_assistant() {
 
     if [[ -z $STYLE ]]; then
         # style not set, output default
-        echo ""
+        echo
         echo "[$PRINT_PREFIX] $MESSAGE"
-        echo ""
+        echo
     else
         if [[ $STYLE == "title" ]]; then
-            space_terminal
+            space_terminal_lg
             echo "$MESSAGE"
             echo $SUB_MESSAGE
-            space_terminal
+            space_terminal_lg
         fi
     fi
 }

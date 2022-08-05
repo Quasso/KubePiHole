@@ -10,7 +10,7 @@ function install_dependencies() {
 
     print_assistant "Installing the necessary packages for running a Kubernetes cluster..."
 
-    print_assistant "1.1) Install kubectl..."
+    print_assistant "1.1) Download kubectl..."
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
     print_assistant "1.2) Validate the binary (optional but good)..."
@@ -20,4 +20,7 @@ function install_dependencies() {
 
     print_assistant "1.2.2) Verify the sha256..."
     echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check # TODO: add handler if the above command outputs FAILED
+
+    print_assistant "1.3) Install kubectl"
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 }

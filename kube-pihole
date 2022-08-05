@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# A simple but powerful CLI tool to automate k8s deployment of Pi-hole on a Pi (or elsewhere potentially)
+
+ARGS=$@
+
+source ./shell/install-required-packages.sh

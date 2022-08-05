@@ -7,6 +7,9 @@ export PRINT_PREFIX="KubePiHole Install Deps"
 function install_dependencies() {
     print_assistant "Ensuring your package repositories are up-to-date..."
     sudo apt-get update # needs to run as sudo on Raspberry Pi OS because there is no default root user...
+    
+    print_assistant "Moving to \$HOME directory for installation ($HOME)..."
+    cd $HOME
 
     print_assistant "Installing the necessary packages for running a Kubernetes cluster..."
 

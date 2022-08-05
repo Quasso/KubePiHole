@@ -24,7 +24,7 @@ else
 
     space_terminal
 
-    title "⚙️ Command was supplied: $COMMAND"
+    print_assistant "⚙️ Command was supplied: $COMMAND" "title"
 
     space_terminal
 

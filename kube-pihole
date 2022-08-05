@@ -38,6 +38,7 @@ else
 
         print_assistant "Deploying the k8s manifests now with automatic env substition..."
 
+        deploy_pihole
     fi
 
     space_terminal_lg

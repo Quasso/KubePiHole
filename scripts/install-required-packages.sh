@@ -4,7 +4,7 @@
 
 function install_dependencies() {
     echo "Ensuring your package repositories are up-to-date..."
-    apt-get update # may need to run as sudo...
+    sudo apt-get update # needs to run as sudo on Raspberry Pi OS because there is no default root user...
 
     echo "Installing the necessary packages for running a Kubernetes cluster..."
 

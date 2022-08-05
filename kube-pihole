@@ -19,4 +19,7 @@ if [[ $ARGS -lt 1 ]]; then
     no_args
 else
     # At least one arg supplied, process what it is!
+    COMMAND=$ARGS[0]
+
+    echo "$CLI_FRIENDLY_NAME Command was supplied ($COMMAND), handling..."
 fi

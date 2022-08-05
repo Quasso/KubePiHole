@@ -8,8 +8,6 @@ export CLI_FRIENDLY_NAME="[Kube Pi Hole]"
 
 cd $HOME/KubePiHole # this ensures relative paths work and we execute from the root of the repo
 
-source scripts/install-required-packages.sh
-
 function no_args() {
     echo "$CLI_FRIENDLY_NAME Error! You must supply at least one argument."
 }
@@ -26,6 +24,8 @@ else
     echo "$CLI_FRIENDLY_NAME Command was supplied ($COMMAND), handling..."
 
     if [[ $COMMAND == "install-dependencies" ]]; then
+        source scripts/install-required-packages.sh
+
         echo "$CLI_FRIENDLY_NAME Installing depencies via helper, it will output useful info..."
         install_dependencies
     fi

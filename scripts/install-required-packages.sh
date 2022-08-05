@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PRINT_PREFIX="[KubePiHole Install Deps]"
+export PRINT_PREFIX="KubePiHole Install Deps"
 
 # A helper function to install the necessary packages (dependencies) on a fresh Raspberry Pi OS install
 

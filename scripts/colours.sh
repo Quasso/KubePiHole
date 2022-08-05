@@ -1,3 +1,10 @@
+# Enable colours
+export TERM=xterm-color
+export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Colour definitions
 export COLOUR_NC='\e[0m' # reset
 export COLOUR_BLACK='\e[0;30m'
 export COLOUR_GRAY='\e[1;30m'

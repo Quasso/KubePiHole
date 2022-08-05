@@ -13,3 +13,19 @@ spec:
   selector:
     matchLabels:
       directory: etc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ${PIHOLE_NAME}-local-dnsmasq-claim
+spec:
+  storageClassName: local
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+  selector:
+    matchLabels:
+      directory: dnsmasq.d

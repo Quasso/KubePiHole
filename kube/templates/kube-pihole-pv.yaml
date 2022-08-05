@@ -22,3 +22,27 @@ spec:
           operator: In
           values:
           - ${PIHOLE_NAME}
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ${PIHOLE_NAME}-local-dnsmasq-volume
+  labels:
+    directory: dnsmasq.d
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local
+  local:
+    path: /${PIHOLE_NAME}/pi-hole
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - ${PIHOLE_NAME}

@@ -28,6 +28,7 @@ function print_assistant() {
         if [[ $STYLE == "title" ]]; then
             space_terminal_lg
             echo "$MESSAGE" # echo "${COLOUR_GREEN}$MESSAGE${COLOUR_NC}"
+            echo "--"
             echo $SUB_MESSAGE
             space_terminal_lg
         fi

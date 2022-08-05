@@ -110,7 +110,7 @@ We should be ready to rock now!
 First of all, let's make using the CLI tool more convenient by creating a basic alias (we must run this command from the root directory where this README is stored on your Pi):
 
 ```zsh
-alias kube-pihole="$PWD/kube-pihole" # makes it a bit nicer to run the CLI from now on
+alias kube-pihole="$HOME/KubePiHole/kube-pihole" # makes it a bit nicer to run the CLI from now on
 ```
 
 The first CLI command we run installs all the required dependencies (`kubectl`, `docker` etc):

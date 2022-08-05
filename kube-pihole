@@ -6,7 +6,7 @@ ARGS=$*
 
 export CLI_FRIENDLY_NAME="[Kube Pi Hole]"
 
-source scripts/install-required-packages.sh
+source $HOME/KubePiHole/scripts/install-required-packages.sh
 
 function no_args() {
     echo "$CLI_FRIENDLY_NAME Error! You must supply at least one argument."

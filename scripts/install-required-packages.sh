@@ -14,7 +14,10 @@ function install_dependencies() {
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
     print_assistant "1.2) Validate the binary (optional but good)..."
+
+    print_assistant "1.2.1) Pull the sha256..."
     curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-    print_assistant "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-    # TODO: add handler if the above command outputs FAILED
+
+    print_assistant "1.2.2) Verify the sha256..."
+    echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check # TODO: add handler if the above command outputs FAILED
 }

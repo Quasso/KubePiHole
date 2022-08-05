@@ -21,10 +21,12 @@ else
     # At least one arg supplied, process what it is!
     COMMAND=${ARGS}
 
+    space_terminal
+
     print_assistant "Command was supplied ($COMMAND), handling..."
 
     # this ensures relative paths work and we execute from the root of the repo
-    # cd "$HOME/KubePiHole"
+    cd "$HOME/KubePiHole"
 
     if [[ $COMMAND == "install-dependencies" ]]; then
         source scripts/install-required-packages.sh
@@ -32,4 +34,6 @@ else
         print_assistant "Installing depencies via helper, it will output useful info..."
         install_dependencies
     fi
+
+    space_terminal
 fi

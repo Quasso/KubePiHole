@@ -6,6 +6,7 @@ ARGS=$*
 
 export PRINT_PREFIX="Kube Pi Hole"
 
+# Contains a few helpful methods because I like DRY things
 source scripts/utils.sh
 
 no_args() {
@@ -23,7 +24,9 @@ else
 
     space_terminal
 
-    print_assistant "Command was supplied ($COMMAND), handling..."
+    print_assistant "⚙️ Command was supplied: $COMMAND"
+
+    space_terminal
 
     # this ensures relative paths work and we execute from the root of the repo
     cd "$HOME/KubePiHole"

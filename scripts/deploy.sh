@@ -4,7 +4,7 @@ export PRINT_PREFIX="KubePiHole DEPLOY"
 
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {
-    PIHOLE_NAME="kube-pihole"
+    export PIHOLE_NAME="kube-pihole"
     # Kubernetes template files
     local K8S_STORAGECLASS="$HOME/KubePiHole/kube/templates/kube-pihole-storageclass.yaml"
     local K8S_PVCS="$HOME/KubePiHole/kube/templates/kube-pihole-pvc.yaml"
@@ -12,7 +12,7 @@ function deploy_pihole() {
 
     print_assistant "Deploy Pi-hole function is now running!" "title"
 
-    sudo k3s kubectl
+    # sudo k3s kubectl
 
     envsubst_and_apply_manifest $K8S_STORAGECLASS
 

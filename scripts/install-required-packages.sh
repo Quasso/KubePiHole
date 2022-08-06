@@ -8,6 +8,9 @@ function finalise_config() {
     CUSTOM_KUBECONF=./kube/generated/k3s-custom.yaml
     print_assistant "Time to copy the default config into here so it can be modified to allow kubectl to run..."
     sudo cp $DEFAULT_K3S_KUBECONF $CUSTOM_KUBECONF
+    echo "YOU MUST CHANGE THE VALUE of 6443 to 6444 to work on this version!"
+    echo "For convenience, here's the file. Edit the port and save with ctrl + x!"
+    sudo nano $CUSTOM_KUBECONF
 }
 
 #

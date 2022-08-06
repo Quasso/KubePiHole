@@ -39,5 +39,5 @@ function envsubst_and_apply_manifest() {
     TEMPLATE=$1
 
     print_assistant "Substituting env vars for manifest $TEMPLATE & applying..."
-    cat $TEMPLATE | envsubst | kubectl -n kube-pihole --kubeconfig ./kube/generated/k3s-custom.yaml apply -f -
+    cat $TEMPLATE | envsubst | kubectl -n kube-pihole --kubeconfig $HOME/KubePiHole/kube/generated/k3s-custom.yaml apply -f -
 }

@@ -13,7 +13,8 @@ function install_dependencies() {
     print_assistant "Installing the necessary packages for running a Kubernetes cluster..."
 
     print_assistant "1) Install k3s..."
-    curl -sfL https://get.k3s.io | bash -
+    curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v0.9.1 sh - # for older Pis
+    # curl -sfL https://get.k3s.io | bash - # armv7 ONLY!
     # curl -Ls "https://sbom.k8s.io/$(curl -Ls https://dl.k8s.io/release/latest.txt)/release" | awk '/PackageName: k8s.gcr.io\// {print $2}'
 
     # print_assistant "2) Install pre-reqs for kubectl via apt-get..."

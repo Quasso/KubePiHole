@@ -33,6 +33,7 @@ function install_dependencies() {
             print_assistant "k3s has installed now..."
         else
             # anything special?
+            echo "placeholder for else statement"
         fi
         finalise_config
     else

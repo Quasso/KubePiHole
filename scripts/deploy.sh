@@ -12,6 +12,8 @@ function deploy_pihole() {
 
     print_assistant "Deploy Pi-hole function is now running!" "title"
 
+    sudo k3s kubectl
+
     envsubst_and_apply_manifest $K8S_STORAGECLASS
 
     envsubst_and_apply_manifest $K8S_PVCS

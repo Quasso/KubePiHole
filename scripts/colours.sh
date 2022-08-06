@@ -1,8 +1,8 @@
 # Enable colours
-export TERM=xterm-COLOR
-export GREP_OPTIONS='--COLOUR=auto' GREP_COLOR='1;32'
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+# export TERM=xterm-COLOR
+# export GREP_OPTIONS='--COLOUR=auto' GREP_COLOR='1;32'
+# export CLICOLOR=1
+# export LSCOLORS=ExFxCxDxBxegedabagacad
 
 # Colour definitions
 export C_RESET='\033[0m'

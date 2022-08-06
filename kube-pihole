@@ -28,7 +28,7 @@ else
     # this ensures relative paths work and we execute from the root of the repo
     cd "$HOME/KubePiHole"
 
-    if [[ $COMMAND == "install-dependencies" ]]; then
+    if [[ $COMMAND == "install-dependencies" || $COMMAND == "install" ]]; then
         source scripts/install-required-packages.sh
 
         print_assistant "Installing depencies via helper, it will output useful info..."

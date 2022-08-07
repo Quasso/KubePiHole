@@ -12,7 +12,7 @@ spec:
       storage: ${PIHOLE_PV_CAPACITY}
   selector:
     matchLabels:
-      directory: ${ETC_DIR}
+      directory: ${ETC_PATH}
 
 ---
 apiVersion: v1
@@ -28,4 +28,4 @@ spec:
       storage: ${DNSMASQ_PV_CAPACITY}
   selector:
     matchLabels:
-      directory: ${DNSMASQ_DIR}
+      directory: ${DNSMASQ_PATH}

@@ -44,19 +44,19 @@ function init_deploy() {
     export PIHOLE_IP_ADDRESS="127.0.0.1"
 
     # For the etc config which
-    export ETC_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim"
-    export ETC_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume"
+    # export ETC_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim"
+    # export ETC_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume"
     # DNSMASQ Kube PV names
-    export DNSMASQ_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-claim"
-    export DNSMASQ_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume"
+    # export DNSMASQ_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-claim"
+    # export DNSMASQ_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume"
 
     if [[ $REDEPLOY == redeploy ]]; then
-        print_assistant "Deleting all the resources on the namespace \$KUBE_NS ($KUBE_NS)..."
-        kubectl delete storageclass $STORAGE_CLASS_NAME
+        # print_assistant "Deleting all the resources on the namespace \$KUBE_NS ($KUBE_NS)..."
+        # kubectl delete storageclass $STORAGE_CLASS_NAME
         kubectl delete ns $KUBE_NS
         print_assistant "Removing the old persistent volumes since redeploy is true..."
-        kubectl delete pv $DNSMASQ_PERSISTENT_VOLUME
-        kubectl delete pv $ETC_PERSISTENT_VOLUME
+        # kubectl delete pv $DNSMASQ_PERSISTENT_VOLUME
+        # kubectl delete pv $ETC_PERSISTENT_VOLUME
     fi
 
     print_assistant "Deploying the k8s manifests now with automatic env substition..."

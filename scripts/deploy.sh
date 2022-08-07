@@ -42,6 +42,10 @@ function deploy_pihole() {
 
     local K8S_DEPLOY="$PWD/kube/templates/pihole-k8s_template.yaml"
     local K8S_DEPLOY_GEN="$PWD/kube/generated/pihole-k8s.yaml"
+    local K8S_SVC="$PWD/kube/templates/pihole-k8s-svc_template.yaml"
+    local K8S_SVC_GEN="$PWD/kube/generated/pihole-k8s-svc.yaml"
 
     envsubst_and_apply_manifest $K8S_DEPLOY $K8S_DEPLOY_GEN
+    envsubst_and_apply_manifest $K8S_SVC $K8S_SVC_GEN
+
 }

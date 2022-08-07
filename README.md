@@ -8,11 +8,11 @@ DNS is often trusted to practically random third parties, which can mean slow re
 
 Pi-hole is designed to be installed on a Raspberry Pi (any version, at least model B 2 and above!) running the Raspberry Pi OS. Among other things, it can filter ads across your entire network. It's also useful for blocking known malicious domains. (More on this later.)
 
-## Reasoning
+## Description
 
-I'm fairly technical, my day job is coding. Even I have struggled with issues with running just a single Pi with Pi-hole installed, but I do not blame Pi-hole for this. It's partly because I'm running an old Pi atm, and have quite a lot of domains filtered. It works great.
+A simple CLI tool designed to be able to deploy Pi-hole instances (possibly several) easily on a desktop or Pi environment.
 
-But once or twice the power tripped (due to power cuts) and the Pi didn't work after that because it caused corruption to the install. You could get around this issue by deploying remotely, but I prefer the local network install. This has left me Pi-hole-less for too long and I figured deploying this with Kubernetes would be lovely because it can support redundancy more easily and be easier to re-deploy.
+Kubernetes brings some additional benefits over a Docker container because it can do things like automatically restart the "Pod" (Kubernetes container instance) that is running and makes it easy to run multiple similar but differently configured instances with proper resource management for optimal performance.
 
 ## Desktop use
 

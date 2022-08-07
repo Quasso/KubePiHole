@@ -41,7 +41,7 @@ function init_deploy() {
     export DNSMASQ_PATH="dnsmasq.d"
     export DNSMASQ_DIR="/${ETC_PATH}/${DNSMASQ_PATH}"
 
-    export PIHOLE_IP_ADDRESS="127.0.0.1"
+    export PIHOLE_IP_ADDRESS="0.0.0.0"
 
     if [[ $REDEPLOY == redeploy ]]; then
         kubectl delete ns $KUBE_NS

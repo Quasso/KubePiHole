@@ -11,7 +11,7 @@ export PIHOLE_TIMEZONE="Europe/London"
 export PIHOLE_WEB_PASSWORD="changemetosomethingsecure" # TODO: add automatic secure password generation + output
 export STORAGE_CLASS_NAME="local-storage"
 export PERSISTENCE_LOCAL="storage"
-PERSISTENCE_PIHOLE="${PERSISTENCE_LOCAL}/pihole"
+local PERSISTENCE_PIHOLE="${PERSISTENCE_LOCAL}/pihole"
 export PERSISTENCE_ETC="${PERSISTENCE_PIHOLE}/etc"
 export PERSISTENCE_DNSMASQ="${PERSISTENCE_PIHOLE}/dnsmasq.d"
 
@@ -43,20 +43,9 @@ function init_deploy() {
 
     export PIHOLE_IP_ADDRESS="127.0.0.1"
 
-    # For the etc config which
-    # export ETC_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim"
-    # export ETC_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume"
-    # DNSMASQ Kube PV names
-    # export DNSMASQ_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-claim"
-    # export DNSMASQ_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume"
-
     if [[ $REDEPLOY == redeploy ]]; then
-        # print_assistant "Deleting all the resources on the namespace \$KUBE_NS ($KUBE_NS)..."
-        # kubectl delete storageclass $STORAGE_CLASS_NAME
         kubectl delete ns $KUBE_NS
         print_assistant "Removing the old persistent volumes since redeploy is true..."
-        # kubectl delete pv $DNSMASQ_PERSISTENT_VOLUME
-        # kubectl delete pv $ETC_PERSISTENT_VOLUME
     fi
 
     print_assistant "Deploying the k8s manifests now with automatic env substition..."

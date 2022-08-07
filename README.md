@@ -18,7 +18,7 @@ Kubernetes brings some additional benefits over a Docker container because it ca
 
 ## Desktop Deployment
 
-If you're not already aware of and using `kubectl`/Kubernetes on your local machine, check [this little guide out](./INSTALL_DD.md).
+If you're not already using `kubectl`/Kubernetes on your local machine, check [this little guide out](./INSTALL_DD.md).
 
 ### Deploy the Pi-hole app and deps automatically
 

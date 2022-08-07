@@ -24,6 +24,9 @@ function init_deploy() {
 
     source scripts/deploy.sh
 
+    print_assistant "Setting the context for kubectl to use docker-desktop as a safety measure (ensures you don't deploy remotely by accident)..."
+    kubectl config set-context docker-desktop
+
     export PIHOLE_PATH="/etc/pihole"
     export DNSMASQ_PATH="/etc/dnsmasq.d"
 
@@ -51,8 +54,6 @@ function init_deploy() {
         print_assistant "Creating namespace for k8s deploys via k3s (on a Pi)..."
         sudo k3s kubectl create ns $KUBE_NS
     elif [[ $KUBE_DESKTOP == true ]]; then
-        print_assistant "Setting the context for kubectl to use docker-desktop as a safety measure (ensures you don't deploy remotely by accident)..."
-        kubectl set-context docker-desktop
         print_assistant "Creating namespace for k8s deploys via kube-ctl (on a Desktop)..."
         kubectl create ns $KUBE_NS
     fi

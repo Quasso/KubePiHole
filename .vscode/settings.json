@@ -3,6 +3,7 @@
         "dnsmasq",
         "Imager",
         "kube",
+        "Kubernetes",
         "pihole",
         "WEBPASSWORD"
     ]

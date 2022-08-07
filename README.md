@@ -26,7 +26,15 @@ This is useful for:
 
 Once you've installed [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your preferred OS, it should be trivial to get set up.
 
-Simply open a terminal in this root of the repository, and execute:
+Once Docker Desktop is running:
+
+- Open its settings
+- Navigate to Kubernetes
+- Check the box "Enable Kubernetes"
+- Click the button "Apply & Restart"
+- Wait until the Docker Desktop restarts and Kubernetes moves from status "KUBERNETES STARTING" (orange indicator) to running (green indicator)
+
+Now, simply open a terminal in this root of the repository, and execute:
 
 ```zsh
 export KUBE_DESKTOP=true

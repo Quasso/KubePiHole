@@ -22,6 +22,6 @@ spec:
       targetPort: 53
   selector:
     app: ${PIHOLE_NAME}
-  type: ClusterIP # LoadBalancer exposes a public URL, ClusterIP for port forward to local only
+  type: LoadBalancer
 status:
   loadBalancer: {}

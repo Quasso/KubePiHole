@@ -29,8 +29,14 @@ function init_deploy() {
 
     export ETC_PATH="etc"
 
+    # Pi-hole filesystem
     export PIHOLE_PATH="pihole"
+    export PIHOLE_DIR="/${ETC_PATH}/${PIHOLE_PATH}"
+
+    # dnsmasq filesystem
     export DNSMASQ_PATH="dnsmasq.d"
+    export DNSMASQ_DIR="/${ETC_PATH}/${DNSMASQ_PATH}"
+
     export PIHOLE_IP_ADDRESS="127.0.0.1"
 
     # For the etc config which

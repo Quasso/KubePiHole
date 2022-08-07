@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   name: ${ETC_PERSISTENT_VOLUME}
   labels:
-    directory: ${ETC_DIR}
+    directory: ${PIHOLE_DIR}
 spec:
   capacity:
     storage: ${PIHOLE_PV_CAPACITY}
@@ -13,7 +13,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: ${STORAGE_CLASS_NAME}
   local:
-    path: ${PIHOLE_PATH}
+    path: ${PIHOLE_DIR}
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -38,7 +38,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: ${STORAGE_CLASS_NAME}
   local:
-    path: ${PIHOLE_PATH}
+    path: ${DNSMASQ_DIR}
   nodeAffinity:
     required:
       nodeSelectorTerms:

@@ -14,6 +14,29 @@ I'm fairly technical, my day job is coding. Even I have struggled with issues wi
 
 But once or twice the power tripped (due to power cuts) and the Pi didn't work after that because it caused corruption to the install. You could get around this issue by deploying remotely, but I prefer the local network install. This has left me Pi-hole-less for too long and I figured deploying this with Kubernetes would be lovely because it can support redundancy more easily and be easier to re-deploy.
 
+## Desktop use
+
+If you would like to deploy this on your local machine, you can do easily by using `docker-desktop`.
+
+Docker Desktop will install Kubernetes at your request, which will enable everything you need to deploy Pi-hole on a local Kubernetes cluster.
+
+This is useful for:
+
+- If you want to always protect your DNS + block nasty links on the go
+
+Once you've installed [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your preferred OS, it should be trivial to get set up.
+
+Simply open a terminal in this root of the repository, and execute:
+
+```zsh
+export KUBE_DESKTOP=true
+./kube-pihole deploy
+```
+
+The script should handle everything automatically. It will generate configuration files based off of environment variables set inside `./kube-pihole` (which you can edit to your liking, with improvements on the way).
+
+If the script outputs successfully, you should now have a running Pi-hole instance which can be set up for us in your machine's DNS config.
+
 ## Complete guide
 
 Since I'm sure it can be a bit daunting at first with Pi-hole if you're not very technical, I want to provide a complete guide for doing this so hopefully almost anyone can do this if they're willing to spend 30 minutes setting things up!

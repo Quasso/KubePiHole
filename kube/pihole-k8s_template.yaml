@@ -50,14 +50,16 @@ spec:
           - containerPort: 443
             protocol: TCP
         volumeMounts:
-        - name: ${ETC_PERSISTENT_VOLUME}
+        - name: etc
           mountPath: "${PIHOLE_PATH}"
-        - name: ${DNSMASQ_PERSISTENT_VOLUME}
+        - name: dnsmasq
           mountPath: "${DNSMASQ_PATH}"
       volumes:
-      - name: ${ETC_PERSISTENT_VOLUME}
-        persistentVolumeClaim:
-          claimName: ${ETC_PERSISTENT_V_CLAIM}
-      - name: ${DNSMASQ_PERSISTENT_VOLUME}
-        persistentVolumeClaim:
-          claimName: ${DNSMASQ_PERSISTENT_V_CLAIM}
+      - name: etc
+        hostPath:
+          path: ${PERSISTENCE_ETC}
+          type: Directory
+      - name: dnsmasq
+        hostPath:
+          path: ${PERSISTENCE_DNSMASQ}
+          type: Directory

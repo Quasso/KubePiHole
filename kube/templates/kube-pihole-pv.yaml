@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: ${PIHOLE_NAME}-local-etc-volume
+  name: ${PIHOLE_NAME}-local-storage-etc-volume
   labels:
     directory: etc
 spec:
@@ -11,7 +11,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: local
+  storageClassName: local-storage
   local:
     path: /${PIHOLE_NAME}/pi-hole
   nodeAffinity:
@@ -27,7 +27,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: ${PIHOLE_NAME}-local-dnsmasq-volume
+  name: ${PIHOLE_NAME}-local-storage-dnsmasq-volume
   labels:
     directory: dnsmasq.d
 spec:
@@ -36,7 +36,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: local
+  storageClassName: local-storage
   local:
     path: /${PIHOLE_NAME}/pi-hole
   nodeAffinity:

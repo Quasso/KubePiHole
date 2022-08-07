@@ -40,9 +40,9 @@ spec:
         - name: ${PIHOLE_NAME}-local-dnsmasq-volume
           mountPath: "/etc/dnsmasq.d"
       volumes:
-      - name: ${PIHOLE_NAME}-local-etc-volume
+      - name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume
         persistentVolumeClaim:
           claimName: ${PIHOLE_NAME}-local-etc-claim
-      - name: ${PIHOLE_NAME}-local-dnsmasq-volume
+      - name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume
         persistentVolumeClaim:
           claimName: ${PIHOLE_NAME}-local-dnsmasq-claim

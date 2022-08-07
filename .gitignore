@@ -1,2 +1,3 @@
 .DS_STORE
 pihole-k8s.yaml
+**/generated/**

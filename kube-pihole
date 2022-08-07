@@ -60,6 +60,7 @@ else
         init_deploy
     elif [[ $COMMAND == "redeploy" ]]; then
         print_assistant "Deleting all the resources on the namespace \$KUBE_NS ($KUBE_NS)..."
+        kubectl delete storageclass $STORAGE_CLASS_NAME
         kubectl delete ns $KUBE_NS
         init_deploy
     fi

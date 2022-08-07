@@ -22,7 +22,7 @@ spec:
           operator: In
           values:
           - kube-pihole
-
+          - docker-desktop
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -47,3 +47,4 @@ spec:
           operator: In
           values:
           - kube-pihole
+          - docker-desktop

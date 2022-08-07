@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: ${PIHOLE_NAME}-local-storage-etc-volume
+  name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume
   labels:
     directory: etc
 spec:
@@ -11,7 +11,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
+  storageClassName: ${STORAGE_CLASS_NAME}
   local:
     path: /${PIHOLE_NAME}/pi-hole
   nodeAffinity:
@@ -22,12 +22,12 @@ spec:
           operator: In
           values:
           - ${PIHOLE_NAME}
-
+          - docker-desktop
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: ${PIHOLE_NAME}-local-storage-dnsmasq-volume
+  name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume
   labels:
     directory: dnsmasq.d
 spec:
@@ -36,7 +36,7 @@ spec:
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
-  storageClassName: local-storage
+  storageClassName: ${STORAGE_CLASS_NAME}
   local:
     path: /${PIHOLE_NAME}/pi-hole
   nodeAffinity:
@@ -47,3 +47,4 @@ spec:
           operator: In
           values:
           - ${PIHOLE_NAME}
+          - docker-desktop

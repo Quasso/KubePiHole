@@ -1,10 +1,10 @@
 #!/bin/bash
 
 export PRINT_PREFIX="KubePiHole DEPLOY"
+export PIHOLE_NAME="kube-pihole"
 
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {
-    export PIHOLE_NAME="kube-pihole"
 
     # Kubernetes template files
     local K8S_STORAGECLASS="$PWD/kube/templates/kube-pihole-storageclass.yaml"

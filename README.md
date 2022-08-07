@@ -20,6 +20,10 @@ If you're not already aware of and using `kubectl`/Kubernetes on your local mach
 
 ### Deploy the Pi-hole app and deps automatically
 
+This is useful for:
+
+- If you want to always protect your DNS + block nasty links on the go
+
 Simply open a terminal in this root of the repository, and execute:
 
 ```zsh

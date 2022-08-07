@@ -12,13 +12,19 @@ spec:
   - name: dns
     protocol: TCP
     port: 53
-    targetPort: dns
+    targetPort: 53
+  - name: dns-udp
+    protocol: UDP
+    port: 53
+    targetPort: 53
   - name: pihole-http
-    port: 80
-    nodePort: 31001
     protocol: TCP
-    targetPort: pihole-http
+    port: 80
+    targetPort: 80
   selector:
     app: ${PIHOLE_NAME}
   sessionAffinity: None
-  type: NodePort
+  type: LoadBalancer
+  loadBalancerIP: ${PIHOLE_LOCAL_IP_ADDRESS}
+  externalIPs:
+  - ${PIHOLE_LOCAL_IP_ADDRESS}

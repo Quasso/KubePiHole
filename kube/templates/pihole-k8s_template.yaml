@@ -41,7 +41,7 @@ spec:
             memory: "512M"
         env:
         - name: VIRTUAL_HOST
-          value: ${PIHOLE_HOSTNAME}
+          value: "${PIHOLE_LOCAL_IP_ADDRESS}"
         - name: TZ
           value: "${PIHOLE_TIMEZONE}"
         - name: WEBPASSWORD

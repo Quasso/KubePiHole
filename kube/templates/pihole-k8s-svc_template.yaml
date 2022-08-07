@@ -4,24 +4,22 @@ kind: Service
 metadata:
   labels:
     app: ${PIHOLE_NAME}
-  name: ${PIHOLE_NAME}-public
+  name: pihole-tcp
   namespace: ${KUBE_NS}
 spec:
+  externalTrafficPolicy: Local
   ports:
-    - name: https-web
-      port: 443
-      protocol: TCP
-      targetPort: 443
-    - name: http-web
-      port: 80
-      protocol: TCP
-      targetPort: 80
-    - name: dns
-      port: 53
-      protocol: TCP
-      targetPort: 53
+  - name: dns
+    targetPort: dns
+    protocol: TCP
+    port: 53
+    targetPort: dns
+  - name: pihole-http
+    port: 80
+    nodePort: 1001
+    protocol: TCP
+    targetPort: pihole-http
   selector:
     app: ${PIHOLE_NAME}
-  type: LoadBalancer
-status:
-  loadBalancer: {}
+  sessionAffinity: None
+  type: NodePort

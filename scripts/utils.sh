@@ -39,10 +39,11 @@ function envsubst_and_apply_manifest() {
     TEMPLATE=$1
     DEST=$2
 
-    ls -a -lh
-
     print_assistant "Substituting env vars for manifest $TEMPLATE & applying..."
     cat $TEMPLATE | envsubst >$DEST
-
-    sudo kubectl -n kube-pihole --kubeconfig $PWD/kube/generated/k3s-custom.yaml apply -f $DEST
+    if [[ -z $KUBE_DESKTOP ]]; then
+        sudo kubectl -n $KUBE_NS apply -f $DEST
+    elif [[ $KUBE_DESKTOP == true ]]; then
+        kubectl -n $KUBE_NS apply -f $DEST
+    fi
 }

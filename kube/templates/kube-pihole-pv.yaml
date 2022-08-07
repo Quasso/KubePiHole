@@ -38,7 +38,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: ${STORAGE_CLASS_NAME}
   local:
-    path: ${DNSMASQ_PATH}
+    path: ${PIHOLE_PATH}
   nodeAffinity:
     required:
       nodeSelectorTerms:

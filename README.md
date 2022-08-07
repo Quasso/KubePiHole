@@ -39,6 +39,44 @@ The script should handle everything automatically. It will generate configuratio
 
 If the script outputs successfully, you should now have a running Pi-hole instance which can be set up for us in your machine's DNS config.
 
+#### Troubleshooting
+
+Set the `$POD_NAME` variable up for subsequent commands.
+
+Step 1)
+
+ when running this command:
+
+```zsh
+kubectl get pods -A | grep pihole
+```
+
+Step 2)
+
+Set the pod name value in terminal:
+
+```zsh
+POD_NAME="replace with value from previous output"
+```
+
+##### If your pod is stuck in a state of `Pending`
+
+Then a useful debug command is:
+
+```zsh
+kubectl describe pod -n $KUBE_NS $POD_NAME # replace POD_NAME value with output from Step 1
+```
+
+This should provide some useful insights.
+
+#####  If your pod is running and you want logs
+
+If the pod is running and you want to gather logs:
+
+```zsh
+kubectl logs -n $KUBE_NS $POD_NAME
+```
+
 ## Complete Guide - Raspberry Pi (3 and over)
 
 Since I'm sure it can be a bit daunting at first with Pi-hole if you're not very technical, I want to provide a complete guide for doing this so hopefully almost anyone can do this if they're willing to spend 30 minutes setting things up!

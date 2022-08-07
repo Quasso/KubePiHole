@@ -35,14 +35,14 @@ spec:
         - name: WEBPASSWORD
           value: "${PIHOLE_WEB_PASSWORD}"
         volumeMounts:
-        - name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume
+        - name: ${ETC_PERSISTENT_VOLUME}
           mountPath: "/etc/${PIHOLE_NAME}"
-        - name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume
+        - name: ${DNSMASQ_PERSISTENT_VOLUME}
           mountPath: "/etc/dnsmasq.d"
       volumes:
-      - name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume
+      - name: ${ETC_PERSISTENT_VOLUME}
         persistentVolumeClaim:
           claimName: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim
-      - name: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume
+      - name: ${DNSMASQ_PERSISTENT_VOLUME}
         persistentVolumeClaim:
           claimName: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-claim

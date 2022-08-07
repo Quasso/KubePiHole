@@ -38,9 +38,9 @@ spec:
           value: "${PIHOLE_WEB_PASSWORD}"
         volumeMounts:
         - name: ${ETC_PERSISTENT_VOLUME}
-          mountPath: "${PIHOLE_PATH}"
+          mountPath: "/${ETC_PATH}/${PIHOLE_PATH}"
         - name: ${DNSMASQ_PERSISTENT_VOLUME}
-          mountPath: "${DNSMASQ_PATH}"
+          mountPath: "/${ETC_PATH}/${DNSMASQ_PATH}"
       volumes:
       - name: ${ETC_PERSISTENT_VOLUME}
         persistentVolumeClaim:

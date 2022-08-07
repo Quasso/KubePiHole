@@ -5,3 +5,4 @@ metadata:
   name: ${STORAGE_CLASS_NAME}
 provisioner: kubernetes.io/no-provisioner
 volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Retain

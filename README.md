@@ -37,7 +37,26 @@ kubectl get pods -A
 
 The script should handle everything automatically. It will generate configuration files based off of environment variables set inside `./kube-pihole` (which you can edit to your liking, with improvements on the way).
 
-If the script outputs successfully, you should now have a running Pi-hole instance which can be set up for us in your machine's DNS config.
+If the script outputs successfully, you should now have a `Running` Pi-hole instance which can be set up for us in your machine's DNS config.
+
+### Set your DNS up to use the k8s pod
+
+On a Mac:
+
+- open Network -> Advanced -> DNS
+- select the '+' sign
+- type '127.0.0.1'
+- hit 'OK'
+- hit 'Apply'
+
+From terminal:
+
+```zsh
+dig google.com
+nslookup google.com # | grep NOERROR
+```
+
+The above commands should complete successfully and both contain `127.0.0.1`.
 
 #### Troubleshooting
 

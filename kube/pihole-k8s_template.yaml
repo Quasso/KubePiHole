@@ -30,6 +30,8 @@ spec:
             cpu: "0.5"
             memory: "512M"
         env:
+        - name: FTLCONF_REPLY_ADDR4
+          value: ${PIHOLE_IP_ADDRESS}
         - name: TZ
           value: "${PIHOLE_TIMEZONE}"
         - name: WEBPASSWORD

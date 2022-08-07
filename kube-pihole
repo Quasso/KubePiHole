@@ -29,6 +29,7 @@ function init_deploy() {
 
     export PIHOLE_PATH="etc"
     export DNSMASQ_PATH="dnsmasq.d"
+    export PIHOLE_IP_ADDRESS="127.0.0.1"
 
     # For the etc config which
     export ETC_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim"

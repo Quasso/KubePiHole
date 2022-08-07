@@ -10,13 +10,12 @@ spec:
   externalTrafficPolicy: Local
   ports:
   - name: dns
-    targetPort: dns
     protocol: TCP
     port: 53
     targetPort: dns
   - name: pihole-http
     port: 80
-    nodePort: 1001
+    nodePort: 31001
     protocol: TCP
     targetPort: pihole-http
   selector:

@@ -22,7 +22,7 @@ spec:
         app: ${PIHOLE_NAME}
         name: ${PIHOLE_NAME}
     spec:
-      hostname: ${PIHOLE_NAME}-localhost
+      hostname: ${PIHOLE_HOSTNAME}
       hostNetwork: true
       dnsPolicy: ClusterFirst
       restartPolicy: Always
@@ -41,7 +41,7 @@ spec:
             memory: "512M"
         env:
         - name: VIRTUAL_HOST
-          value: ${PIHOLE_NAME}-localhost
+          value: ${PIHOLE_HOSTNAME}
         - name: TZ
           value: "${PIHOLE_TIMEZONE}"
         - name: WEBPASSWORD
@@ -51,14 +51,16 @@ spec:
         - name: WEBTHEME
           value: "default-auto"
         - name: PIHOLE_DNS_
-          value: "127.0.0.1#5053;1.1.1.1;1.0.0.1"
+          value: "1.1.1.1;1.0.0.1;127.0.0.1#5335"
         securityContext:
           privileged: true
         ports:
           - containerPort: 80
+            hostPort: 80
             name: pihole-http
             protocol: TCP
           - containerPort: 53
+            hostPort: 53
             name: dns
             protocol: TCP
           - containerPort: 53

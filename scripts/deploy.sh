@@ -2,6 +2,7 @@
 
 export PRINT_PREFIX="KubePiHole DEPLOY"
 export PIHOLE_NAME="pihole-kube"
+export PIHOLE_HOSTNAME="${PIHOLE_NAME}-localhost"
 
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {

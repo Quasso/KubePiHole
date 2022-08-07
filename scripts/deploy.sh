@@ -5,15 +5,16 @@ export PRINT_PREFIX="KubePiHole DEPLOY"
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {
     export PIHOLE_NAME="kube-pihole"
+
     # Kubernetes template files
-    local K8S_STORAGECLASS="./kube/templates/kube-pihole-storageclass.yaml"
-    local K8S_STORAGECLASS_GEN="./kube/generated/kube-pihole-storageclass.yaml"
+    local K8S_STORAGECLASS="$PWD/kube/templates/kube-pihole-storageclass.yaml"
+    local K8S_STORAGECLASS_GEN="$PWD/kube/generated/kube-pihole-storageclass.yaml"
 
-    local K8S_PVCS="./kube/templates/kube-pihole-pvc.yaml"
-    local K8S_PVCS_GEN="./kube/generated/kube-pihole-pvc.yaml"
+    local K8S_PVCS="$PWD/kube/templates/kube-pihole-pvc.yaml"
+    local K8S_PVCS_GEN="$PWD/kube/generated/kube-pihole-pvc.yaml"
 
-    local K8S_PVS="./kube/templates/kube-pihole-pv.yaml"
-    local K8S_PVS_GEN="./kube/generated/kube-pihole-pv.yaml"
+    local K8S_PVS="$PWD/kube/templates/kube-pihole-pv.yaml"
+    local K8S_PVS_GEN="$PWD/kube/generated/kube-pihole-pv.yaml"
 
     print_assistant "Deploy Pi-hole function is now running!" "title"
 

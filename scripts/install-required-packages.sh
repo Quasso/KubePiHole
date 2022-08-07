@@ -39,8 +39,11 @@ function install_dependencies() {
             echo "placeholder for else statement"
         fi
         finalise_config
+    elif [[ $KUBE_DESKTOP == true ]]; then
+        finalise_config
     else
         curl -sfL https://get.k3s.io | sh - # armv7 ONLY!
+        finalise_config
     fi
 
     # print_assistant "2) Reconfigure to fix the connectivity of k3s kubectl..."

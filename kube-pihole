@@ -27,8 +27,8 @@ function init_deploy() {
     print_assistant "Setting the context for kubectl to use docker-desktop as a safety measure (ensures you don't deploy remotely by accident)..."
     kubectl config set-context docker-desktop
 
-    export PIHOLE_PATH="/etc/pihole"
-    export DNSMASQ_PATH="/etc/dnsmasq.d"
+    export PIHOLE_PATH="etc"
+    export DNSMASQ_PATH="dnsmasq.d"
 
     # For the etc config which
     export ETC_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim"

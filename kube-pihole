@@ -41,7 +41,7 @@ function init_deploy() {
     export DNSMASQ_PATH="dnsmasq.d"
     export DNSMASQ_DIR="/${ETC_PATH}/${DNSMASQ_PATH}"
 
-    export PIHOLE_LOCAL_IP_ADDRESS="127.0.0.10"
+    export PIHOLE_LOCAL_IP_ADDRESS="192.1.0.10"
 
     # export PIHOLE_LOCAL_IP_ADDRESS="0.0.0.0"
 

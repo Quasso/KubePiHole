@@ -57,9 +57,9 @@ spec:
       volumes:
       - name: etc
         hostPath:
-          path: ${PERSISTENCE_ETC}
+          path: $PWD/${PERSISTENCE_ETC}
           type: Directory
       - name: dnsmasq
         hostPath:
-          path: ${PERSISTENCE_DNSMASQ}
+          path: $PWD/${PERSISTENCE_DNSMASQ}
           type: Directory

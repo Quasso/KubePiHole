@@ -4,10 +4,10 @@ kind: PersistentVolume
 metadata:
   name: ${ETC_PERSISTENT_VOLUME}
   labels:
-    directory: etc
+    directory: ${ETC_DIR}
 spec:
   capacity:
-    storage: 1Gi
+    storage: ${PIHOLE_PV_CAPACITY}
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
@@ -29,10 +29,10 @@ kind: PersistentVolume
 metadata:
   name: ${DNSMASQ_PERSISTENT_VOLUME}
   labels:
-    directory: dnsmasq.d
+    directory: ${DNSMASQ_DIR}
 spec:
   capacity:
-    storage: 1Gi
+    storage: ${DNSMASQ_PV_CAPACITY}
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete

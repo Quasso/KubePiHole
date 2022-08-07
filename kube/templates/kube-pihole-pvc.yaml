@@ -9,10 +9,10 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi # recommended in docs as min.
+      storage: ${PIHOLE_PV_CAPACITY}
   selector:
     matchLabels:
-      directory: etc
+      directory: ${ETC_DIR}
 
 ---
 apiVersion: v1
@@ -25,7 +25,7 @@ spec:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 500Mi
+      storage: ${DNSMASQ_PV_CAPACITY}
   selector:
     matchLabels:
-      directory: dnsmasq.d
+      directory: ${DNSMASQ_DIR}

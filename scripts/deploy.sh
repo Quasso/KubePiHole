@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export PRINT_PREFIX="KubePiHole DEPLOY"
-export PIHOLE_NAME="kube-pihole"
+export PIHOLE_NAME="pihole-kube"
 
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {
@@ -15,6 +15,12 @@ function deploy_pihole() {
 
     local K8S_PVS="$PWD/kube/templates/kube-pihole-pv.yaml"
     local K8S_PVS_GEN="$PWD/kube/generated/kube-pihole-pv.yaml"
+
+    export PIHOLE_PV_CAPACITY=2Gi
+    export ETC_DIR=etc
+
+    export DNSMASQ_PV_CAPACITY=500Mi
+    export DNSMASQ_DIR=dnsmasq.d
 
     print_assistant "Deploy Pi-hole function is now running!" "title"
 

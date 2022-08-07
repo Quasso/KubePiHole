@@ -16,7 +16,7 @@ A simple CLI tool designed to be able to deploy Pi-hole instances (possibly seve
 
 Kubernetes brings some additional benefits over a Docker container because it can do things like automatically restart the "Pod" (Kubernetes container instance) that is running and makes it easy to run multiple similar but differently configured instances with proper resource management for optimal performance.
 
-## Desktop use
+## Desktop Deployment
 
 If you're not already aware of and using `kubectl`/Kubernetes on your local machine, check [this little guide out](./INSTALL_DD.md).
 

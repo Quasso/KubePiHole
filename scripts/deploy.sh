@@ -9,6 +9,7 @@ function deploy_pihole() {
     export DNSMASQ_PV_CAPACITY=500Mi
 
     mkdir -p $PERSISTENCE_LOCAL;
+    mkdir -p $PERSISTENCE_PIHOLE;
     mkdir -p $PERSISTENCE_ETC;
     mkdir -p $PERSISTENCE_DNSMASQ;
 

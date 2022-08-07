@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: kube-pihole-local-storage-etc-volume
+  name: pihole-kube-local-storage-etc-volume
   labels:
     directory: etc
 spec:
   capacity:
-    storage: 1Gi
+    storage: 2Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
@@ -21,18 +21,18 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - kube-pihole
+          - pihole-kube
           - docker-desktop
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: kube-pihole-local-storage-dnsmasq-volume
+  name: pihole-kube-local-storage-dnsmasq-volume
   labels:
     directory: dnsmasq.d
 spec:
   capacity:
-    storage: 1Gi
+    storage: 500Mi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete
@@ -46,5 +46,5 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - kube-pihole
+          - pihole-kube
           - docker-desktop

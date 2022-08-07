@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: kube-pihole-local-storage-etc-claim
+  name: pihole-kube-local-storage-etc-claim
 spec:
   storageClassName: local-storage
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 2Gi # recommended in docs as min.
+      storage: 2Gi
   selector:
     matchLabels:
       directory: etc
@@ -18,7 +18,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: kube-pihole-local-storage-dnsmasq-claim
+  name: pihole-kube-local-storage-dnsmasq-claim
 spec:
   storageClassName: local-storage
   accessModes:

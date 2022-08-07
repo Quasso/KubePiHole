@@ -2,15 +2,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${PIHOLE_NAME}
   labels:
     app: ${PIHOLE_NAME}
-    namespace: ${KUBE_NS}
+  name: ${PIHOLE_NAME}
+  namespace: ${KUBE_NS}
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: ${PIHOLE_NAME}
+  strategy: {}
   template:
     metadata:
       labels:
@@ -20,14 +21,14 @@ spec:
       containers:
       - name: pihole
         image: pihole/pihole:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         resources:
           limits:
             cpu: "0.8"
             memory: "1G"
           requests:
             cpu: "0.5"
-            memory: "512MB"
+            memory: "512M"
         env:
         - name: TZ
           value: "${PIHOLE_TIMEZONE}"

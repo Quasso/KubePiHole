@@ -21,7 +21,7 @@ spec:
       containers:
       - name: pihole
         image: pihole/pihole:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             cpu: "0.8"

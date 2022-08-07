@@ -18,13 +18,17 @@ function deploy_pihole() {
 
     print_assistant "Deploy Pi-hole function is now running!" "title"
 
-    # sudo k3s kubectl
-
     envsubst_and_apply_manifest $K8S_STORAGECLASS $K8S_STORAGECLASS_GEN
+
+    sleep 3
 
     envsubst_and_apply_manifest $K8S_PVCS $K8S_PVCS_GEN
 
+    sleep 3
+
     envsubst_and_apply_manifest $K8S_PVS $K8S_PVS_GEN
+
+    sleep 3
 
     print_assistant "Great success! All of the necessary storage definitions have completed."
     sleep 3

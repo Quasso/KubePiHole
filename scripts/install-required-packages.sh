@@ -8,8 +8,10 @@ function finalise_config() {
     CUSTOM_KUBECONF=./kube/generated/k3s-custom.yaml
     print_assistant "Time to copy the default config into here so it can be modified to allow kubectl to run..."
     sudo cp $DEFAULT_K3S_KUBECONF $CUSTOM_KUBECONF
-    echo "YOU MUST CHANGE THE VALUE of 6443 to 6444 to work on this version!"
-    echo "For convenience, here's the file. Edit the port and save with ctrl + x!"
+    echo "YOU MUST CHANGE THE VALUE of 6443 to 6444 to work on this version! (5s pause)"
+    sleep 5
+    echo "For convenience, here's the file. Edit the port and save with ctrl + x! (3s pause)"
+    sleep 3
     sudo nano $CUSTOM_KUBECONF
 }
 
@@ -35,8 +37,7 @@ function install_dependencies() {
             curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v0.9.1 sh - # for older Pis
             print_assistant "k3s has installed now..."
         else
-            # anything special?
-            echo "placeholder for else statement"
+            echo "Already installed! Nice, k3s is installed already on this system, great!"
         fi
         finalise_config
     elif [[ $KUBE_DESKTOP == true ]]; then

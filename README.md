@@ -16,11 +16,11 @@ But once or twice the power tripped (due to power cuts) and the Pi didn't work a
 
 ## Desktop use
 
-If you're not already aware of and using `kubectl` or Kubernetes in general on your local machine, check [this little guide out](./INSTALL_DD.md).
+If you're not already aware of and using `kubectl`/Kubernetes on your local machine, check [this little guide out](./INSTALL_DD.md).
 
 ### Deploy the Pi-hole app and deps automatically
 
-Now, simply open a terminal in this root of the repository, and execute:
+Simply open a terminal in this root of the repository, and execute:
 
 ```zsh
 export KUBE_DESKTOP=true

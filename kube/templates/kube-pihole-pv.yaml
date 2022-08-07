@@ -39,6 +39,7 @@ spec:
   storageClassName: local
   local:
     path: /${PIHOLE_NAME}/pi-hole
+  nodeAffinity:
     required:
       nodeSelectorTerms:
       - matchExpressions:

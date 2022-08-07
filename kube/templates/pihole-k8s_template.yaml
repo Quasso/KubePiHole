@@ -40,6 +40,8 @@ spec:
             cpu: "0.5"
             memory: "512M"
         env:
+        - name: VIRTUAL_HOST
+          value: ${PIHOLE_NAME}-localhost
         - name: TZ
           value: "${PIHOLE_TIMEZONE}"
         - name: WEBPASSWORD

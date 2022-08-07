@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ${PIHOLE_NAME}
+  name: ${PIHOLE_NAME}-public
+  namespace: ${KUBE_NS}
+spec:
+  ports:
+    - name: https-web
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    - name: https-web
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: dns
+      port: 53
+      protocol: TCP
+      targetPort: 53
+  selector:
+    app: ${PIHOLE_NAME}
+  type: ClusterIP # LoadBalancer exposes a public URL, ClusterIP for port forward to local only
+status:
+  loadBalancer: {}

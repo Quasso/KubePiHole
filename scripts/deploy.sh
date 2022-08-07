@@ -40,8 +40,8 @@ function deploy_pihole() {
     mkdir -p $PERSISTENCE_ETC;
     mkdir -p $PERSISTENCE_DNSMASQ;
 
-    local K8S_DEPLOY="$PWD/kube/pihole-k8s_template.yaml"
-    local K8S_DEPLOY_GEN="$PWD/kube/pihole-k8s.yaml"
+    local K8S_DEPLOY="$PWD/kube/templates/pihole-k8s_template.yaml"
+    local K8S_DEPLOY_GEN="$PWD/kube/generated/pihole-k8s.yaml"
 
     envsubst_and_apply_manifest $K8S_DEPLOY $K8S_DEPLOY_GEN
 }

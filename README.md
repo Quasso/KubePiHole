@@ -8,7 +8,7 @@ DNS is often trusted to practically random third parties, which can mean slow re
 
 Pi-hole is designed to be installed on a Raspberry Pi running the Raspberry Pi OS primarily. This tool makes running a virtual container easy on your desktop, too.
 
-Among other things, it can filter ads across your entire network. It's also useful for blocking known malicious domains. (More on this later.)
+Among other things, it can filter URLs which are not favourable to your experience of the internet across your entire network. It's also useful for blocking known malicious domains. (More on this later.)
 
 ## Description
 

@@ -36,6 +36,19 @@ spec:
           value: "${PIHOLE_TIMEZONE}"
         - name: WEBPASSWORD
           value: "${PIHOLE_WEB_PASSWORD}"
+        securityContext:
+          privileged: true
+        ports:
+          - containerPort: 53
+            protocol: TCP
+          - containerPort: 53
+            protocol: UDP
+          - containerPort: 67
+            protocol: UDP
+          - containerPort: 80
+            protocol: TCP
+          - containerPort: 443
+            protocol: TCP
         volumeMounts:
         - name: ${ETC_PERSISTENT_VOLUME}
           mountPath: "${PIHOLE_PATH}"

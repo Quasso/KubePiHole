@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   name: ${ETC_PERSISTENT_VOLUME}
   labels:
-    directory: ${PIHOLE_DIR}
+    directory: ${PIHOLE_PATH}
 spec:
   capacity:
     storage: ${PIHOLE_PV_CAPACITY}
@@ -29,7 +29,7 @@ kind: PersistentVolume
 metadata:
   name: ${DNSMASQ_PERSISTENT_VOLUME}
   labels:
-    directory: ${DNSMASQ_DIR}
+    directory: ${DNSMASQ_PATH}
 spec:
   capacity:
     storage: ${DNSMASQ_PV_CAPACITY}

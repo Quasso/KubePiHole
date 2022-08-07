@@ -6,7 +6,9 @@ Second of all, Pi-hole is great for protecting your local network, and benefitin
 
 DNS is often trusted to practically random third parties, which can mean slow resolution, leading to increased page load times online (for example). Even if you use a solid provider like Cloudflare or Google and experience little performance impact, there are privacy concerns.
 
-Pi-hole is designed to be installed on a Raspberry Pi (any version, at least model B 2 and above!) running the Raspberry Pi OS. Among other things, it can filter ads across your entire network. It's also useful for blocking known malicious domains. (More on this later.)
+Pi-hole is designed to be installed on a Raspberry Pi running the Raspberry Pi OS primarily. This tool makes running a virtual container easy on your desktop, too.
+
+Among other things, it can filter ads across your entire network. It's also useful for blocking known malicious domains. (More on this later.)
 
 ## Description
 

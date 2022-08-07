@@ -25,4 +25,12 @@ function deploy_pihole() {
     envsubst_and_apply_manifest $K8S_PVCS $K8S_PVCS_GEN
 
     envsubst_and_apply_manifest $K8S_PVS $K8S_PVS_GEN
+
+    print_assistant "Great success! All of the necessary storage definitions have completed."
+    sleep 3
+
+    local K8S_DEPLOY="$PWD/kube/pihole-k8s_template.yaml"
+    local K8S_DEPLOY_GEN="$PWD/kube/pihole-k8s.yaml"
+
+    envsubst_and_apply_manifest $K8S_DEPLOY $K8S_DEPLOY_GEN
 }

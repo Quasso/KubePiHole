@@ -27,9 +27,6 @@ else
 
     print_assistant "Kube Pi Hole is running!" "title" "Command was supplied: $COMMAND"
 
-    # this ensures relative paths work and we execute from the root of the repo
-    # cd "$HOME/KubePiHole"
-
     if [[ $COMMAND == "install-dependencies" || $COMMAND == "install" ]]; then
         source scripts/install-required-packages.sh
 
@@ -39,15 +36,20 @@ else
         source scripts/deploy.sh
 
         print_assistant "Deploying the k8s manifests now with automatic env substition..."
+
         if [[ -z $KUBE_DESKTOP ]]; then
+            # This ensures relative paths work and we execute from the root of the repo
+            cd "$HOME/KubePiHole"
             print_assistant "Creating namespace for k8s deploys via k3s (on a Pi)..."
             sudo k3s kubectl create ns $KUBE_NS
         elif [[ $KUBE_DESKTOP == true ]]; then
-            print_assistant "Setting the context for kubectl "
+            print_assistant "Setting the context for kubectl to use docker-desktop as a safety measure (ensures you don't deploy remotely by accident)..."
             kubectl set-context docker-desktop
             print_assistant "Creating namespace for k8s deploys via kube-ctl (on a Desktop)..."
             kubectl create ns $KUBE_NS
         fi
+
+        # Deploy all the PVs and the Pi-hole instance
         deploy_pihole
     fi
 

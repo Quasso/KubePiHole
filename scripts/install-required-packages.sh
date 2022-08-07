@@ -25,7 +25,7 @@ function install_dependencies() {
 
     print_assistant "Installing the necessary packages for running a Kubernetes cluster..."
 
-    if [[ $PI_IS_ANCIENT == true ]]; then
+    if [[ $PI_IS_ANCIENT == true && -z $KUBE_DESKTOP ]]; then
         K3S_EXISTS=$(sudo k3s --version | grep version)
         print_assistant "Pi is ancient!!"
 
@@ -45,16 +45,4 @@ function install_dependencies() {
         curl -sfL https://get.k3s.io | sh - # armv7 ONLY!
         finalise_config
     fi
-
-    # print_assistant "2) Reconfigure to fix the connectivity of k3s kubectl..."
-    # sudo k3s kubectl config set-cluster server=https://127.0.0.1:6444
-    # sudo k3s kubectl config view
-    # systemctl stop k3s
-
-    # print_assistant "3) Run k3s server with custom config..."
-    # sudo k3s server \
-    #     --bind-address "127.0.0.1" \
-    #     --http-listen-port 8080 \
-    #     --https-listen-port 6443 \
-    #     --write-kubeconfig-mode false
 }

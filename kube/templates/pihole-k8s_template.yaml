@@ -8,7 +8,6 @@ metadata:
   namespace: ${KUBE_NS}
 spec:
   replicas: 1
-  hostname: ${PIHOLE_NAME}
   selector:
     matchLabels:
       app: ${PIHOLE_NAME}
@@ -19,6 +18,14 @@ spec:
         app: ${PIHOLE_NAME}
         name: ${PIHOLE_NAME}
     spec:
+      hostname: ${PIHOLE_NAME}
+      hostNetwork: true
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          # upstream DNS used by pihole.
+          - 1.1.1.1
+          - 1.0.0.1
       containers:
       - name: pihole
         image: pihole/pihole:latest

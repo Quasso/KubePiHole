@@ -13,7 +13,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: ${STORAGE_CLASS_NAME}
   local:
-    path: /${PIHOLE_NAME}/pi-hole
+    path: ${PIHOLE_PATH}
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -38,7 +38,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete
   storageClassName: ${STORAGE_CLASS_NAME}
   local:
-    path: /${PIHOLE_NAME}/pi-hole
+    path: ${DNSMASQ_PATH}
   nodeAffinity:
     required:
       nodeSelectorTerms:

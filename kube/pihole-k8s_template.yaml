@@ -42,7 +42,7 @@ spec:
       volumes:
       - name: ${ETC_PERSISTENT_VOLUME}
         persistentVolumeClaim:
-          claimName: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim
+          claimName: ${ETC_PERSISTENT_V_CLAIM}
       - name: ${DNSMASQ_PERSISTENT_VOLUME}
         persistentVolumeClaim:
-          claimName: ${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-claim
+          claimName: ${DNSMASQ_PERSISTENT_V_CLAIM}

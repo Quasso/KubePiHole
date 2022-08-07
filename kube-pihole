@@ -22,7 +22,14 @@ no_args() {
 function init_deploy() {
     source scripts/deploy.sh
 
+    export PIHOLE_PATH="/etc/pihole"
+    export DNSMASQ_PATH="/etc/dnsmasq.d"
+
+    # For the etc config which 
+    export ETC_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-claim"
     export ETC_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-etc-volume"
+    # DNSMASQ Kube PV names
+    export DNSMASQ_PERSISTENT_V_CLAIM="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-claim"
     export DNSMASQ_PERSISTENT_VOLUME="${PIHOLE_NAME}-${STORAGE_CLASS_NAME}-dnsmasq-volume"
 
     print_assistant "Deploying the k8s manifests now with automatic env substition..."

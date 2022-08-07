@@ -45,7 +45,7 @@ The script should handle everything automatically. It will generate configuratio
 
 If the script outputs successfully, you should now have a running Pi-hole instance which can be set up for us in your machine's DNS config.
 
-## Complete guide
+## Complete Guide - Raspberry Pi (3 and over)
 
 Since I'm sure it can be a bit daunting at first with Pi-hole if you're not very technical, I want to provide a complete guide for doing this so hopefully almost anyone can do this if they're willing to spend 30 minutes setting things up!
 
@@ -53,7 +53,7 @@ Since I'm sure it can be a bit daunting at first with Pi-hole if you're not very
 
 To get started, here's what you'll need:
 
-- 1x Raspberry Pi (ideally model 3 or above, since they support 64 bit)
+- 1x Raspberry Pi (model 3 or above, since they support 64 bit)
 - 1x SD card
 - 1x Computer with SD card reader
 
@@ -70,6 +70,8 @@ Then, visit the official Raspberry Pi website here:
 Click the left hand side button "CHOOSE OS" (under "Operating System").
 
 You should see a list, select the Lite version in either 64 bit (Raspberry Pi 3 and above) or 32 bit (Raspberry Pi 2 and below).
+
+_Note: support for 2 and below is not currently planned for support, though I have already made progress and it is almost working, the specs are a bit limited for it to make lots of sense. However the ability to automatically relaunch the instance if it fails could be reason enough._
 
 Like so (set your own secure password for SSH, or if you know how, use keys):
 

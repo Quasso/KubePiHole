@@ -41,7 +41,7 @@ function envsubst_and_apply_manifest() {
 
     print_assistant "Substituting env vars for manifest $TEMPLATE & applying..."
     cat $TEMPLATE | envsubst >$DEST
-    if [[ -z $KUBE_DESKTOP ]]; then
+    if [[ -z $KUBE_DESKTOP || $KUBE_DESKTOP == false ]]; then
         sudo kubectl -n $KUBE_NS apply -f $DEST
     elif [[ $KUBE_DESKTOP == true ]]; then
         kubectl -n $KUBE_NS apply -f $DEST

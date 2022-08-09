@@ -23,7 +23,7 @@ function finalise_config() {
 #
 #
 function install_dependencies() {
-    PI_IS_ANCIENT=true
+    PI_IS_ANCIENT=false
 
     print_assistant "Installing the necessary packages for running a Kubernetes cluster..."
 

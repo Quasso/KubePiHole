@@ -52,7 +52,7 @@ function init_deploy() {
 
     print_assistant "Deploying the k8s manifests now with automatic env substition..."
 
-    if [[ -z $KUBE_DESKTOP ]]; then
+    if [[ -z $KUBE_DESKTOP || $KUBE_DESKTOP == false ]]; then
         # This ensures relative paths work and we execute from the root of the repo
         cd "$HOME/KubePiHole"
         print_assistant "Creating namespace for k8s deploys via k3s (on a Pi)..."

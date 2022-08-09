@@ -28,8 +28,10 @@ function init_deploy() {
 
     source scripts/deploy.sh
 
-    print_assistant "Setting the context for kubectl to use docker-desktop as a safety measure (ensures you don't deploy remotely by accident)..."
-    kubectl config set-context docker-desktop
+    if [[ $KUBE_DESKTOP == true ]]; then
+        print_assistant "Setting the context for kubectl to use docker-desktop as a safety measure (ensures you don't deploy remotely by accident)..."
+        kubectl config set-context docker-desktop
+    fi
 
     export ETC_PATH="etc"
 

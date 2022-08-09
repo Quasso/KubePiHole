@@ -39,11 +39,13 @@ function install_dependencies() {
         else
             echo "Already installed! Nice, k3s is installed already on this system, great!"
         fi
-        finalise_config
+        # don't run this on Pis, k3s uses the port 6443
+        # finalise_config
     elif [[ $KUBE_DESKTOP == true ]]; then
         finalise_config
     else
         curl -sfL https://get.k3s.io | sh - # armv7 ONLY!
-        finalise_config
+        # don't run this on Pis, k3s uses the port 6443
+        # finalise_config
     fi
 }

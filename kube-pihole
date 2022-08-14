@@ -5,7 +5,7 @@
 ARGS=$*
 
 export PRINT_PREFIX="Kube Pi Hole"
-export KUBE_DESKTOP=false
+export KUBE_DESKTOP=true
 export KUBE_NS="pihole"
 export PIHOLE_TIMEZONE="Europe/London"
 export PIHOLE_WEB_PASSWORD="changemetosomethingsecure" # TODO: add automatic secure password generation + output

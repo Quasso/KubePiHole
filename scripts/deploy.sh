@@ -8,6 +8,7 @@ export PIHOLE_HOSTNAME="${PIHOLE_NAME}-localhost"
 function deploy_pihole() {
     export PIHOLE_PV_CAPACITY=2Gi
     export DNSMASQ_PV_CAPACITY=500Mi
+    export LB_IP_ADDR="192.168.178.254"
 
     mkdir -p $PERSISTENCE_LOCAL;
     mkdir -p $PERSISTENCE_PIHOLE;

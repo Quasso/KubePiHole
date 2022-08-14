@@ -2,12 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    metallb.universe.tf/address-pool: network-services
+    metallb.universe.tf/allow-shared-ip: pihole-svc
   labels:
     app: ${PIHOLE_NAME}
   name: pihole-tcp
   namespace: ${KUBE_NS}
 spec:
   externalTrafficPolicy: Local
+  loadBalancerIP: ${LB_IP_ADDR}
   ports:
   - name: dns
     protocol: TCP
@@ -25,6 +29,31 @@ spec:
     app: ${PIHOLE_NAME}
   sessionAffinity: None
   type: LoadBalancer
-  loadBalancerIP: ${PIHOLE_LOCAL_IP_ADDRESS}
-  externalIPs:
-  - ${PIHOLE_LOCAL_IP_ADDRESS}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/address-pool: network-services
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  labels:
+    app: ${PIHOLE_NAME}
+  name: pihole-udp
+  namespace: ${KUBE_NS}
+spec:
+  externalTrafficPolicy: Local
+  loadBalancerIP: ${LB_IP_ADDR}
+  ports:
+  - name: dns-udp
+    port: 53
+    protocol: UDP
+    targetPort: dns-udp
+  - name: client-udp
+    port: 67
+    protocol: UDP
+    targetPort: client-udp
+  selector:
+    app: ${PIHOLE_NAME}
+  sessionAffinity: None
+  type: LoadBalancer

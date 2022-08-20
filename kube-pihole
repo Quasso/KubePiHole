@@ -63,6 +63,7 @@ function init_deploy() {
         print_assistant "Creating namespace for k8s deploys via kube-ctl (on a Desktop)..."
         kubectl create ns $PIHOLE_KUBE_NS
     fi
+    print_assistant "Switching the kube config context to use the new ${PIHOLE_KUBE_NS} by default..."
     kubectl config set-context --current --namespace=$PIHOLE_KUBE_NS
     # Deploy all the PVs and the Pi-hole instance
     deploy_pihole

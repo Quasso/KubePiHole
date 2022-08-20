@@ -31,7 +31,6 @@ Simply open a terminal in this root of the repository, and execute:
 ```zsh
 export KUBE_DESKTOP=true
 ./kube-pihole deploy
-kubectl config set-context --current --namespace=$PIHOLE_KUBE_NS
 kubectl get pods -A
 ```
 

@@ -43,6 +43,10 @@ function deploy_pihole() {
     echo
     echo "Change it immediately. Happy blocking!"
 
+    echo
+    echo "Sleeping for 5 seconds before trying port-bind..."
+    sleep 5
+
     space_terminal_lg
     echo "Forwarding the port so you can access the web UI locally..."
     kubectl port-forward service/pihole-ui-svc 8000:80

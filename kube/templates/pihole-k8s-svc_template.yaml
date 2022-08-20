@@ -10,17 +10,21 @@ metadata:
   name: pihole-svc
   namespace: ${PIHOLE_KUBE_NS}
 spec:
-  externalTrafficPolicy: Cluster
-  loadBalancerIP: ${LB_IP_ADDR}
+  externalTrafficPolicy: Local
+  # loadBalancerIP: ${LB_IP_ADDR}
   ports:
   - name: dns
     protocol: TCP
     port: 53
-    targetPort: 53
+    targetPort: dns
   - name: pihole-http
     protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 8008
+    targetPort: pihole-http
+  - name: pihole-https
+    protocol: TCP
+    port: 8443
+    targetPort: pihole-https
   - name: dns-udp
     port: 53
     protocol: UDP

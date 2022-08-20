@@ -8,12 +8,12 @@ export PIHOLE_HOSTNAME="${PIHOLE_NAME}-localhost"
 function deploy_pihole() {
     export PIHOLE_PV_CAPACITY=2Gi
     export DNSMASQ_PV_CAPACITY=500Mi
-    export LB_IP_ADDR="192.168.178.254"
+    export LB_IP_ADDR="192.168.1.197"
 
-    mkdir -p $PERSISTENCE_LOCAL;
-    mkdir -p $PERSISTENCE_PIHOLE;
-    mkdir -p $PERSISTENCE_ETC;
-    mkdir -p $PERSISTENCE_DNSMASQ;
+    mkdir -p $PERSISTENCE_LOCAL
+    mkdir -p $PERSISTENCE_PIHOLE
+    mkdir -p $PERSISTENCE_ETC
+    mkdir -p $PERSISTENCE_DNSMASQ
 
     local K8S_DEPLOY="$PWD/kube/templates/pihole-k8s_template.yaml"
     local K8S_DEPLOY_GEN="$PWD/kube/generated/pihole-k8s.yaml"
@@ -22,4 +22,18 @@ function deploy_pihole() {
 
     envsubst_and_apply_manifest $K8S_DEPLOY $K8S_DEPLOY_GEN
     envsubst_and_apply_manifest $K8S_SVC $K8S_SVC_GEN
+
+    space_terminal_lg
+    echo "Congratulations, here are some useful outputs regarding the resources created..."
+    echo
+
+    echo "Services generated:"
+    echo
+    kubectl get svc -n pihole
+    echo
+
+    echo "Pods generated:"
+    echo
+    kubectl get pod -n pihole
+    echo
 }

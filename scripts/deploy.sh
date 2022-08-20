@@ -36,14 +36,14 @@ function deploy_pihole() {
     kubectl get pod -n pihole
     echo
 
-    echo
+    space_terminal_lg
     echo "Great success! You can now access the web console on http://localhost:8000/admin"
     echo "Your temporary password is:"
     echo "${PIHOLE_WEB_PASSWORD}"
     echo
     echo "Change it immediately. Happy blocking!"
-    echo
 
+    space_terminal_lg
     echo "Forwarding the port so you can access the web UI locally..."
     kubectl port-forward service/pihole-ui-svc 8000:80
 }

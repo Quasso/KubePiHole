@@ -53,7 +53,7 @@ spec:
         - name: WEBTHEME
           value: "default-auto"
         - name: PIHOLE_DNS_
-          value: "0.0.0.0"
+          value: "127.0.0.1"
         securityContext:
           privileged: true
         ports:

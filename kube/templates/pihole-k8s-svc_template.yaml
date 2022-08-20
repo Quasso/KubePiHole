@@ -2,29 +2,20 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    metallb.universe.tf/address-pool: network-services
-    metallb.universe.tf/allow-shared-ip: pihole-svc
+  # annotations:
+  #   metallb.universe.tf/address-pool: network-services
+  #   metallb.universe.tf/allow-shared-ip: pihole-svc
   labels:
     app: ${PIHOLE_NAME}
   name: pihole-svc
   namespace: ${PIHOLE_KUBE_NS}
 spec:
   externalTrafficPolicy: Local
-  # loadBalancerIP: ${LB_IP_ADDR}
   ports:
   - name: dns
     protocol: TCP
     port: 53
     targetPort: dns
-  # - name: pihole-http
-  #   protocol: TCP
-  #   port: 8080
-  #   targetPort: pihole-http
-  # - name: pihole-https
-  #   protocol: TCP
-  #   port: 8443
-  #   targetPort: pihole-https
   - name: dns-udp
     port: 53
     protocol: UDP
@@ -43,7 +34,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: pihole-ui-svc
-  namespace: pihole
+  namespace: ${PIHOLE_KUBE_NS}
   labels:
     app: ${PIHOLE_NAME}
 spec:
@@ -54,4 +45,8 @@ spec:
     - name: web-http
       port: 80
       targetPort: 80
+      protocol: TCP
+    - name: web-https
+      port: 443
+      targetPort: 443
       protocol: TCP

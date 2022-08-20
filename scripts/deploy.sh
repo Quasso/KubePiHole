@@ -26,22 +26,23 @@ function deploy_pihole() {
     echo "Congratulations, here are some useful outputs regarding the resources created..."
     echo
 
-    echo "Services generated:"
+    echo "Service/s generated:"
     echo
     kubectl get svc -n pihole
     echo
 
-    echo "Pods generated:"
+    echo "Pod/s generated:"
     echo
     kubectl get pod -n pihole
     echo
 
     space_terminal_lg
     echo "Great success! You can now access the web console on http://localhost:8000/admin"
-    echo "Your temporary password is:"
+    echo
+    echo "Your TEMPORARY password is:"
     echo "${PIHOLE_WEB_PASSWORD}"
     echo
-    echo "Change it immediately. Happy blocking!"
+    echo "Change it **immediately**!"
 
     echo
     echo "Sleeping for 5 seconds before trying port-bind..."
@@ -49,5 +50,7 @@ function deploy_pihole() {
 
     space_terminal_lg
     echo "Forwarding the port so you can access the web UI locally..."
-    kubectl port-forward service/pihole-ui-svc 8000:80
+    echo
+
+    kubectl port-forward service/pihole-ui-svc 8000:80 # 8000:80 or 8443:443 (requires implementation first)
 }

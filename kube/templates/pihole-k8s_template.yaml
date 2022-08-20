@@ -77,6 +77,17 @@ spec:
             hostPort: 67
             name: client-udp
             protocol: UDP
+        # livenessProbe:
+        #   httpGet:
+        #     port: pihole-ui-svc
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 10
+        # readinessProbe:
+        #   httpGet:
+        #     port: pihole-ui-svc
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 10
+        #   failureThreshold: 10
         volumeMounts:
         - name: etc
           mountPath: "${PIHOLE_PATH}"

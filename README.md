@@ -31,10 +31,6 @@ Simply open a terminal in this root of the repository, and execute:
 ```zsh
 export KUBE_DESKTOP=true
 ./kube-pihole deploy
-kubectl get pods -A
-# test DNS is working
-dig sigfail.verteiltesysteme.net @localhost -p 53
-dig sigok.verteiltesysteme.net @localhost -p 53
 ```
 
 The script should handle everything automatically. It will generate configuration files based off of environment variables set inside `./kube-pihole` (which you can edit to your liking, with improvements on the way).
@@ -78,6 +74,16 @@ Set the pod name value in terminal:
 
 ```zsh
 POD_NAME="replace with value from previous output"
+```
+
+Step 3)
+
+Check the DNS service is working as expected:
+
+```zsh
+# test DNS is working
+dig sigfail.verteiltesysteme.net @localhost -p 53 # should return SERVFAIL and no IP
+dig sigok.verteiltesysteme.net @localhost -p 53 # should return NOERROR and an IP
 ```
 
 ##### If your pod is stuck in a state of `Pending`

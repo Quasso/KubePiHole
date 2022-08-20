@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ${PIHOLE_NAME}
   name: ${PIHOLE_NAME}
-  namespace: ${KUBE_NS}
+  namespace: ${PIHOLE_KUBE_NS}
 spec:
   replicas: 1
   selector:

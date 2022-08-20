@@ -31,7 +31,7 @@ Simply open a terminal in this root of the repository, and execute:
 ```zsh
 export KUBE_DESKTOP=true
 ./kube-pihole deploy
-kubectl config set-context --current --namespace=$KUBE_NS
+kubectl config set-context --current --namespace=$PIHOLE_KUBE_NS
 kubectl get pods -A
 ```
 
@@ -83,7 +83,7 @@ POD_NAME="replace with value from previous output"
 Then a useful debug command is:
 
 ```zsh
-kubectl describe pod -n $KUBE_NS $POD_NAME # replace POD_NAME value with output from Step 1
+kubectl describe pod -n $PIHOLE_KUBE_NS $POD_NAME # replace POD_NAME value with output from Step 1
 ```
 
 This should provide some useful insights.
@@ -93,7 +93,7 @@ This should provide some useful insights.
 If the pod is running and you want to gather logs:
 
 ```zsh
-kubectl logs -n $KUBE_NS $POD_NAME
+kubectl logs -n $PIHOLE_KUBE_NS $POD_NAME
 ```
 
 ## Complete Guide - Raspberry Pi (3 and over)

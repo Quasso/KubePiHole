@@ -6,7 +6,7 @@ ARGS=$*
 
 export PRINT_PREFIX="Kube Pi Hole"
 export KUBE_DESKTOP=true
-export KUBE_NS="pihole"
+export PIHOLE_KUBE_NS="pihole"
 export PIHOLE_TIMEZONE="Europe/London"
 export PIHOLE_WEB_PASSWORD="changemetosomethingsecure" # TODO: add automatic secure password generation + output
 export STORAGE_CLASS_NAME="local-storage"
@@ -48,7 +48,7 @@ function init_deploy() {
     # export PIHOLE_LOCAL_IP_ADDRESS="0.0.0.0"
 
     if [[ $REDEPLOY == redeploy ]]; then
-        kubectl delete ns $KUBE_NS
+        kubectl delete ns $PIHOLE_KUBE_NS
         print_assistant "Removing the old persistent volumes since redeploy is true..."
     fi
 
@@ -58,12 +58,12 @@ function init_deploy() {
         # This ensures relative paths work and we execute from the root of the repo
         cd "$HOME/KubePiHole"
         print_assistant "Creating namespace for k8s deploys via k3s (on a Pi)..."
-        sudo k3s kubectl create ns $KUBE_NS
+        sudo k3s kubectl create ns $PIHOLE_KUBE_NS
     elif [[ $KUBE_DESKTOP == true ]]; then
         print_assistant "Creating namespace for k8s deploys via kube-ctl (on a Desktop)..."
-        kubectl create ns $KUBE_NS
+        kubectl create ns $PIHOLE_KUBE_NS
     fi
-
+    kubectl config set-context --current --namespace=$PIHOLE_KUBE_NS
     # Deploy all the PVs and the Pi-hole instance
     deploy_pihole
 }

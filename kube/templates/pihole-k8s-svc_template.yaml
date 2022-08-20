@@ -17,14 +17,14 @@ spec:
     protocol: TCP
     port: 53
     targetPort: dns
-  - name: pihole-http
-    protocol: TCP
-    port: 8008
-    targetPort: pihole-http
-  - name: pihole-https
-    protocol: TCP
-    port: 8443
-    targetPort: pihole-https
+  # - name: pihole-http
+  #   protocol: TCP
+  #   port: 8080
+  #   targetPort: pihole-http
+  # - name: pihole-https
+  #   protocol: TCP
+  #   port: 8443
+  #   targetPort: pihole-https
   - name: dns-udp
     port: 53
     protocol: UDP
@@ -38,23 +38,20 @@ spec:
   sessionAffinity: None
   type: LoadBalancer
 
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   annotations:
-#     metallb.universe.tf/address-pool: network-services
-#     metallb.universe.tf/allow-shared-ip: pihole-svc
-#   labels:
-#     app: ${PIHOLE_NAME}
-#   name: pihole-udp
-#   namespace: ${PIHOLE_KUBE_NS}
-# spec:
-#   externalTrafficPolicy: Cluster
-#   loadBalancerIP: ${LB_IP_ADDR}
-#   ports:
-
-#   selector:
-#     app: ${PIHOLE_NAME}
-#   sessionAffinity: None
-#   type: LoadBalancer
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pihole-ui-svc
+  namespace: pihole
+  labels:
+    app: ${PIHOLE_NAME}
+spec:
+  selector:
+    app: ${PIHOLE_NAME}
+  type: ClusterIP
+  ports:
+    - name: web-http
+      port: 80
+      targetPort: 80
+      protocol: TCP

@@ -40,6 +40,8 @@ spec:
             cpu: "0.5"
             memory: "512M"
         env:
+        - name: HOSTNAME
+          value: "${PIHOLE_HOSTNAME}"
         - name: ServerIP
           value: "127.0.0.1"
         - name: TZ

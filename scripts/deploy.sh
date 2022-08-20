@@ -8,7 +8,6 @@ export PIHOLE_HOSTNAME="${PIHOLE_NAME}-localhost"
 function deploy_pihole() {
     export PIHOLE_PV_CAPACITY=2Gi
     export DNSMASQ_PV_CAPACITY=500Mi
-    export LB_IP_ADDR="192.168.1.197"
 
     mkdir -p $PERSISTENCE_LOCAL
     mkdir -p $PERSISTENCE_PIHOLE
@@ -37,10 +36,14 @@ function deploy_pihole() {
     kubectl get pod -n pihole
     echo
 
-    echo "Forwarding the port so you can access the web UI locally..."
-    kubectl port-forward service/pihole-ui-svc 8000:80
-
     echo
     echo "Great success! You can now access the web console on http://localhost:8000/admin"
+    echo "Your temporary password is:"
+    echo "${PIHOLE_WEB_PASSWORD}"
     echo
+    echo "Change it immediately. Happy blocking!"
+    echo
+
+    echo "Forwarding the port so you can access the web UI locally..."
+    kubectl port-forward service/pihole-ui-svc 8000:80
 }

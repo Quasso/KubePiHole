@@ -40,6 +40,7 @@ function envsubst_and_apply_manifest() {
     DEST=$2
 
     print_assistant "Substituting env vars for manifest $TEMPLATE & applying..."
+    mkdir -p ./kube/generated
     cat $TEMPLATE | envsubst >$DEST
     if [[ -z $KUBE_DESKTOP || $KUBE_DESKTOP == false ]]; then
         sudo kubectl -n $PIHOLE_KUBE_NS apply -f $DEST

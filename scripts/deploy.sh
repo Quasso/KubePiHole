@@ -18,10 +18,12 @@ function deploy_pihole() {
     local K8S_DEPLOY_GEN="$PWD/kube/generated/pihole-k8s.yaml"
     local K8S_SVC="$PWD/kube/templates/pihole-k8s-svc_template.yaml"
     local K8S_SVC_GEN="$PWD/kube/generated/pihole-k8s-svc.yaml"
+    local K8S_INGRESS="$PWD/kube/templates/pihole-k8s-ingress_template.yaml"
+    local K8S_INGRESS_GEN="$PWD/kube/generated/pihole-k8s-ingress.yaml"
 
     envsubst_and_apply_manifest $K8S_DEPLOY $K8S_DEPLOY_GEN
     envsubst_and_apply_manifest $K8S_SVC $K8S_SVC_GEN
-
+    envsubst_and_apply_manifest $K8S_INGRESS $K8S_INGRESS_GEN
     space_terminal_lg
     echo "Congratulations, here are some useful outputs regarding the resources created..."
     echo
@@ -52,5 +54,5 @@ function deploy_pihole() {
     echo "Forwarding the port so you can access the web UI locally..."
     echo
 
-    kubectl port-forward service/pihole-ui-svc 8000:80 # 8000:80 or 8443:443 (requires implementation first)
+    # kubectl port-forward service/pihole-ui-svc 8000:80 # 8000:80 or 8443:443 (requires implementation first)
 }

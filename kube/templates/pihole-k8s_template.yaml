@@ -65,18 +65,18 @@ spec:
             hostPort: 53
             name: dns
             protocol: TCP
-          - containerPort: 53
-            hostPort: 53
-            name: dns-udp
-            protocol: UDP
+          # - containerPort: 53
+          #   hostPort: 53
+          #   name: dns-udp
+          #   protocol: UDP
           - containerPort: 443
             hostPort: 443
             name: pihole-ssl
             protocol: TCP
-          - containerPort: 67
-            hostPort: 67
-            name: client-udp
-            protocol: UDP
+          # - containerPort: 67
+          #   hostPort: 67
+          #   name: client-udp
+          #   protocol: UDP
         # livenessProbe:
         #   httpGet:
         #     port: pihole-ui-svc
@@ -88,17 +88,17 @@ spec:
         #   initialDelaySeconds: 10
         #   periodSeconds: 10
         #   failureThreshold: 10
-        volumeMounts:
-        - name: etc
-          mountPath: "${PIHOLE_PATH}"
-        - name: dnsmasq
-          mountPath: "${DNSMASQ_PATH}"
-      volumes:
-      - name: etc
-        hostPath:
-          path: $PWD/${PERSISTENCE_ETC}
-          type: Directory
-      - name: dnsmasq
-        hostPath:
-          path: $PWD/${PERSISTENCE_DNSMASQ}
-          type: Directory
+      #   volumeMounts:
+      #   - name: etc
+      #     mountPath: "${PIHOLE_PATH}"
+      #   - name: dnsmasq
+      #     mountPath: "${DNSMASQ_PATH}"
+      # volumes:
+      # - name: etc
+      #   hostPath:
+      #     path: $PWD/${PERSISTENCE_ETC}/
+      #     type: Directory
+      # - name: dnsmasq
+      #   hostPath:
+      #     path: $PWD/${PERSISTENCE_DNSMASQ}/
+      #     type: Directory

@@ -14,6 +14,7 @@ export PERSISTENCE_LOCAL="storage"
 export PERSISTENCE_PIHOLE="${PERSISTENCE_LOCAL}/pihole"
 export PERSISTENCE_ETC="${PERSISTENCE_PIHOLE}/etc"
 export PERSISTENCE_DNSMASQ="${PERSISTENCE_PIHOLE}/dnsmasq.d"
+export PIHOLE_HOST="captain-gvader-kube.forbettergood.ge"
 
 # Contains a few helpful methods because I like DRY things
 source scripts/colours.sh

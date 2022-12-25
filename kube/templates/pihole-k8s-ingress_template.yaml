@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pihole-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  labels:
+    app: ${PIHOLE_NAME}
+spec:
+  tls:
+  - hosts:
+    - ${PIHOLE_HOST}
+    secretName: ${PIHOLE_CERT_SECRET_NAME}
+  rules:
+  - host: ${PIHOLE_HOST}
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/pihole"
+        backend:
+          service:
+            name: pihole-ui-svc
+            port:
+              number: 80
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: pihole-svc
+            port:
+              number: 53

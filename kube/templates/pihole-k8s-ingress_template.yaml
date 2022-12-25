@@ -7,10 +7,10 @@ metadata:
   labels:
     app: ${PIHOLE_NAME}
 spec:
-  tls:
-  - hosts:
-    - ${PIHOLE_HOST}
-    secretName: ${PIHOLE_CERT_SECRET_NAME}
+  # tls:
+  # - hosts:
+  #   - ${PIHOLE_HOST}
+  #   secretName: ${PIHOLE_CERT_SECRET_NAME}
   rules:
   - host: ${PIHOLE_HOST}
     http:
@@ -22,10 +22,10 @@ spec:
             name: pihole-ui-svc
             port:
               number: 80
-      - pathType: Prefix
-        path: "/"
-        backend:
-          service:
-            name: pihole-svc
-            port:
-              number: 53
+      # - pathType: Prefix
+      #   path: "/"
+      #   backend:
+      #     service:
+      #       name: pihole-svc
+      #       port:
+      #         number: 53

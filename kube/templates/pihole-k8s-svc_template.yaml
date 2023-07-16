@@ -2,15 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  # annotations:
-  #   metallb.universe.tf/address-pool: network-services
-  #   metallb.universe.tf/allow-shared-ip: pihole-svc
+  annotations:
+    metallb.universe.tf/address-pool: network-services
+    metallb.universe.tf/allow-shared-ip: pihole-svc
   labels:
     app: ${PIHOLE_NAME}
   name: pihole-svc
   namespace: ${PIHOLE_KUBE_NS}
 spec:
-  # externalTrafficPolicy: Local
+  # externalTrafficPolicy: Cluster
   ports:
   - name: dns
     protocol: TCP
@@ -26,8 +26,8 @@ spec:
     targetPort: 67
   selector:
     app: ${PIHOLE_NAME}
-  sessionAffinity: None
-  type: LoadBalancer
+  # sessionAffinity: None
+  type: ClusterIP
 
 ---
 kind: Service
@@ -40,14 +40,15 @@ metadata:
 spec:
   selector:
     app: ${PIHOLE_NAME}
-  type: NodePort
+  type: ClusterIP
+  # externalTrafficPolicy: Cluster
   ports:
     - name: web-http
-      port: 80
-      targetPort: 80
+      port: 8080
+      targetPort: 8080
       # nodePort: 8008
       protocol: TCP
     - name: web-https
-      port: 443
-      targetPort: 443
+      port: 8443
+      targetPort: 8443
       protocol: TCP

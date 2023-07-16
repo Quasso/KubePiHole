@@ -12,7 +12,7 @@ spec:
   #   - ${PIHOLE_HOST}
   #   secretName: ${PIHOLE_CERT_SECRET_NAME}
   rules:
-  - host: ${PIHOLE_HOST}
+  - host: ${PIHOLE_HOST} # captain-gvader-kube.forbettergood.ge
     http:
       paths:
       - pathType: Prefix
@@ -21,7 +21,7 @@ spec:
           service:
             name: pihole-ui-svc
             port:
-              number: 80
+              number: 8080
       # - pathType: Prefix
       #   path: "/"
       #   backend:

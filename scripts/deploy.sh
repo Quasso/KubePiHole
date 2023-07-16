@@ -1,8 +1,9 @@
 #!/bin/bash
 
 export PRINT_PREFIX="KubePiHole DEPLOY"
-export PIHOLE_NAME="pihole-kube"
-export PIHOLE_HOSTNAME="${PIHOLE_NAME}-localhost"
+export PIHOLE_NAME="pihole-kube-variant"
+export PIHOLE_VARIANT="b"
+export PIHOLE_HOSTNAME="${PIHOLE_NAME}-${PIHOLE_VARIANT}"
 
 # The function that maps and deploys all the necessary k8s manifests!
 function deploy_pihole() {
@@ -23,19 +24,19 @@ function deploy_pihole() {
 
     envsubst_and_apply_manifest $K8S_DEPLOY $K8S_DEPLOY_GEN
     envsubst_and_apply_manifest $K8S_SVC $K8S_SVC_GEN
-    envsubst_and_apply_manifest $K8S_INGRESS $K8S_INGRESS_GEN
+    # envsubst_and_apply_manifest $K8S_INGRESS $K8S_INGRESS_GEN
     space_terminal_lg
     echo "Congratulations, here are some useful outputs regarding the resources created..."
     echo
 
     echo "Service/s generated:"
     echo
-    kubectl get svc -n pihole
+    kubectl get svc -n $PIHOLE_KUBE_NS
     echo
 
     echo "Pod/s generated:"
     echo
-    kubectl get pod -n pihole
+    kubectl get pod -n $PIHOLE_KUBE_NS
     echo
 
     space_terminal_lg
